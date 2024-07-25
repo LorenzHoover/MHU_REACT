@@ -1,0 +1,74 @@
+{
+  "classes": [
+    {
+      "id": 1,
+      "Class Code": "BA 236",
+      "Class Name": "Prin Mngt Study Lion",
+      "Professor": "Beth Cessna",
+      "Contact Email": "beth.cessna@university.edu",
+      "Department": "Business Administration",
+      "Description": "An introduction to the principles of management, focusing on the organizational and behavioral aspects of management in a variety of business contexts.",
+      "Location": "Main Hall, Room 101"
+    },
+    {
+      "id": 2,
+      "Class Code": "BA 327",
+      "Class Name": "Neg & Sales Study Lion",
+      "Professor": "Chris D",
+      "Contact Email": "chris.d@university.edu",
+      "Department": "Business Administration",
+      "Description": "This course covers the fundamentals of negotiation and sales strategies, providing students with practical skills and techniques for successful sales outcomes.",
+      "Location": "Commerce Building, Room 202"
+    },
+    {
+      "id": 3,
+      "Class Code": "BA 370",
+      "Class Name": "Law & Ethics Study Lion",
+      "Professor": "James H",
+      "Contact Email": "james.h@university.edu",
+      "Department": "Business Administration",
+      "Description": "A study of the legal and ethical issues in business, examining the impact of laws and ethical standards on business operations and decision-making.",
+      "Location": "Law Building, Room 303"
+    },
+    {
+      "id": 4,
+      "Class Code": "BA 420",
+      "Class Name": "Leadership Dev Study Lion",
+      "Professor": "Dave R",
+      "Contact Email": "dave.r@university.edu",
+      "Department": "Business Administration",
+      "Description": "This course focuses on developing leadership skills, exploring various leadership styles and their effectiveness in different organizational contexts.",
+      "Location": "Leadership Hall, Room 204"
+    },
+    {
+      "id": 5,
+      "Class Code": "BA 450",
+      "Class Name": "Sr. Seminar Study Lion",
+      "Professor": "Chris D",
+      "Contact Email": "chris.d@university.edu",
+      "Department": "Business Administration",
+      "Description": "A capstone course that integrates knowledge and skills from previous business courses, emphasizing strategic management and decision-making.",
+      "Location": "Seminar Building, Room 305"
+    },
+    {
+      "id": 6,
+      "Class Code": "Cothran Career AI",
+      "Class Name": "Cothran Career AI",
+      "Professor": "Amanda N",
+      "Contact Email": "amanda.n@university.edu",
+      "Department": "Career Services",
+      "Description": "An exploration of artificial intelligence applications in career development, including resume building, job search strategies, and interview preparation.",
+      "Location": "Career Center, Room 101"
+    },
+    {
+      "id": 7,
+      "Class Code": "Grainger C",
+      "Class Name": "MHU Study Lion",
+      "Professor": "MHU Study Lion",
+      "Contact Email": "mhu.studylion@university.edu",
+      "Department": "Various",
+      "Description": "A general study hall class providing a quiet and resourceful environment for students to focus on their studies and complete assignments.",
+      "Location": "Grainger Hall, Room C"
+    }
+  ]
+}
