@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ClassListing = ({ item }) => {
   return (
@@ -25,12 +26,12 @@ const ClassListing = ({ item }) => {
         </div>
         <div className="border border-gray-100 mb-5"></div>
         <div className="flex justify-center">
-          <a
-            href="#"
+          <Link
+            to={`/class/${item.id}`}
             className="h-[36px] bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg text-center text-sm"
           >
             Class GPT
-          </a>
+          </Link>
         </div>
       </div>
     </div>
