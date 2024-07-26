@@ -1,36 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import classData from '../classes.json';
-import Navbar from './Navbar';
+import { fetchGptData } from '../../functions/getCustomGpt';
 
 const ClassDetail = () => {
   const { classId } = useParams();
   const [chatMessages, setChatMessages] = useState([]);
   const [chatInput, setChatInput] = useState('');
   const classItem = classData.classes.find((item) => item.id === parseInt(classId));
-
-  const fetchGptData = async (prompt) => {
-    try {
-      const response = await fetch('https://api.openai.com/v1/engines/davinci-codex/completions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`
-        },
-        body: JSON.stringify({
-          model: classItem.CustomGptId,
-          prompt,
-          max_tokens: 150
-        })
-      });
-      const data = await response.json();
-      console.log('Chat GPT Response:', data);  // Log the chat response
-      return data.choices[0].text;
-    } catch (error) {
-      console.error('Error fetching GPT data:', error);
-      return 'Error fetching response';
-    }
-  };
 
   const handleSend = async () => {
     if (chatInput.trim() === '') return;
@@ -39,7 +16,7 @@ const ClassDetail = () => {
     setChatMessages([...chatMessages, userMessage]);
     setChatInput('');
 
-    const gptResponseText = await fetchGptData(chatInput);
+    const gptResponseText = await fetchGptData(chatInput, classItem);
     const gptMessage = { sender: 'gpt', text: gptResponseText };
     setChatMessages([...chatMessages, userMessage, gptMessage]);
   };
@@ -64,7 +41,6 @@ const ClassDetail = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
       <div className="container mx-auto p-4 flex flex-1">
         <div className="w-1/4 bg-gray-100 p-4 border-r border-gray-200">
           <h2 className="text-xl font-bold mb-4">Semester Breakdown</h2>

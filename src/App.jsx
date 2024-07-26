@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import HomeCards from './components/HomeCards';
-import ClassListings from './components/ClassListings';
-import ViewAllClasses from './components/ViewAllClasses'; // Import the new component
+import ClassListings from './components/ClassListings'; 
+import ViewAllClasses from './components/ViewAllClasses';
 import ClassDetail from './components/ClassDetail';
 
 const App = () => {
@@ -16,9 +16,10 @@ const App = () => {
           <Hero />
           <HomeCards />
           <ClassListings />
+          <ViewAllClasses />
         </>} />
-        <Route path="/view-all-classes" element={<ViewAllClasses />} /> {/* New route */}
         <Route path="/class/:classId" element={<ClassDetail />} />
+        <Route path="/view-all-classes" element={<ViewAllClasses />} />
       </Routes>
     </Router>
   );
