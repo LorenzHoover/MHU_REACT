@@ -1,24 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import classData from '../classes.json';
 import { fetchGptData } from '../../functions/getCustomGpt';
+import { getAssistantId } from '../../functions/getAssistantId';
+import Spinner from './Spinner';
 
 const ClassDetail = () => {
   const { classId } = useParams();
   const [chatMessages, setChatMessages] = useState([]);
   const [chatInput, setChatInput] = useState('');
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false); // New state for loading
   const classItem = classData.classes.find((item) => item.id === parseInt(classId));
+  const [assistantId, setAssistantId] = useState(null);
+
+  useEffect(() => {
+    if (classItem) {
+      const assistantId = getAssistantId(classItem["Class Code"]);
+      setAssistantId(assistantId);
+    }
+  }, [classItem]);
 
   const handleSend = async () => {
-    if (chatInput.trim() === '') return;
+    if (chatInput.trim() === '' || !assistantId) return;
 
     const userMessage = { sender: 'user', text: chatInput };
     setChatMessages([...chatMessages, userMessage]);
     setChatInput('');
+    setLoading(true); // Start loading
 
-    const gptResponseText = await fetchGptData(chatInput, classItem);
-    const gptMessage = { sender: 'gpt', text: gptResponseText };
-    setChatMessages([...chatMessages, userMessage, gptMessage]);
+    try {
+      const gptResponseText = await fetchGptData(chatInput, assistantId, classItem["Class Name"]);
+      const gptMessage = { sender: 'gpt', text: gptResponseText };
+      setChatMessages([...chatMessages, userMessage, gptMessage]);
+    } catch (error) {
+      setError(error.message);
+      console.error('Error sending message:', error);
+    } finally {
+      setLoading(false); // Stop loading
+    }
   };
 
   const handleKeyDown = (e) => {
@@ -63,7 +83,9 @@ const ClassDetail = () => {
                 {message.text}
               </div>
             ))}
+            {loading && <Spinner />} {/* Show spinner while loading */}
           </div>
+          {error && <div className="text-red-500">{error}</div>}
           <div className="flex items-center border-t border-gray-200 pt-4">
             <input
               type="text"

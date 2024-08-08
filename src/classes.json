@@ -9,7 +9,7 @@
       "Department": "Business Administration",
       "Description": "An introduction to the principles of management, focusing on the organizational and behavioral aspects of management in a variety of business contexts.",
       "Location": "Main Hall, Room 101",
-      "CustomGptId": "asst_e6KbTzRYwOVhozpdZHw5GiZV"
+      "CustomGptId": "asst_UZb3CskhqzVAN4Nt8nnKYSlD"
     },
     {
       "id": 2,
@@ -20,7 +20,7 @@
       "Department": "Business Administration",
       "Description": "This course covers the fundamentals of negotiation and sales strategies, providing students with practical skills and techniques for successful sales outcomes.",
       "Location": "Commerce Building, Room 202",
-      "CustomGptId": "asst_xEEZ0kW3SvBat4HFJ6tpyUqc"
+      "CustomGptId": "asst_v04bVYOEvwj9iKCNeYxYtse1"
     },
     {
       "id": 3,
@@ -31,7 +31,7 @@
       "Department": "Business Administration",
       "Description": "A study of the legal and ethical issues in business, examining the impact of laws and ethical standards on business operations and decision-making.",
       "Location": "Law Building, Room 303",
-      "CustomGptId": "asst_CPdTuUxDHbnfS4fJl8AetICG"
+      "CustomGptId": "asst_gnKTve90HoO30RpTYzHcyolu"
     },
     {
       "id": 4,
@@ -42,7 +42,7 @@
       "Department": "Business Administration",
       "Description": "This course focuses on developing leadership skills, exploring various leadership styles and their effectiveness in different organizational contexts.",
       "Location": "Leadership Hall, Room 204",
-      "CustomGptId": "asst_P6SJWkZE89HhV69WfnsJBThD"
+      "CustomGptId": "asst_D8Md7MWqfBIQP1X3VdKYwXc7"
     },
     {
       "id": 5,
@@ -53,7 +53,7 @@
       "Department": "Business Administration",
       "Description": "A capstone course that integrates knowledge and skills from previous business courses, emphasizing strategic management and decision-making.",
       "Location": "Seminar Building, Room 305",
-      "CustomGptId": "asst_7bQAvxqQ3CHtmKSDAQwBvylI"
+      "CustomGptId": "asst_0kmXKEfZaXqc7vfaiUGOcUVE"
     },
     {
       "id": 6,
@@ -64,7 +64,7 @@
       "Department": "Career Services",
       "Description": "An exploration of artificial intelligence applications in career development, including resume building, job search strategies, and interview preparation.",
       "Location": "Career Center, Room 101",
-      "CustomGptId": "asst_Rtth5JKc8Y7iSXyGPGOsQIpV"
+      "CustomGptId": "asst_3P0MBC72jk9D9VPMdhFQoxyX"
     },
     {
       "id": 7,
@@ -75,7 +75,7 @@
       "Department": "Various",
       "Description": "A general study hall class providing a quiet and resourceful environment for students to focus on their studies and complete assignments.",
       "Location": "Grainger Hall, Room C",
-      "CustomGptId": "asst_ceWtHkVs6RjbwcznK0rY4cqH"
+      "CustomGptId": "asst_ePrGUNdkQBLrKbOtyxeyhLKE"
     }
   ]
 }
