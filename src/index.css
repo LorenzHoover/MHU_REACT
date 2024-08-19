@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Additional global styles if needed */
+/* Existing global styles */
 body {
   font-family: Arial, sans-serif;
 }
@@ -25,7 +25,7 @@ li:hover {
   text-decoration: underline;
 }
 
-/* index.css */
+/* Loader styles */
 .loader {
   border-top-color: #3498db;
   animation: spin 1s linear infinite;
@@ -35,4 +35,61 @@ li:hover {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* New MHU-inspired global styles */
+body {
+  @apply font-sans text-base leading-7 text-gray-800;
+}
+
+/* Headings */
+h1 {
+  @apply font-serif text-4xl leading-tight text-blue-900;
+}
+h2 {
+  @apply font-serif text-3xl leading-snug text-blue-900;
+}
+h3 {
+  @apply text-xl leading-relaxed font-bold text-yellow-700;
+}
+h4 {
+  @apply text-2xl leading-snug italic text-gray-600;
+}
+h5, h6 {
+  @apply text-sm leading-relaxed font-extrabold;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+  h1 {
+    @apply text-2xl leading-8;
+  }
+  h2 {
+    @apply text-xl leading-7;
+  }
+  h3 {
+    @apply text-lg leading-6;
+  }
+  h4 {
+    @apply text-xl leading-7;
+  }
+}
+
+/* Link Styling */
+a {
+  @apply text-teal-600 hover:opacity-70;
+}
+
+/* Golden Hover Effect for Specific Buttons */
+.navbar-button, .sign-in-button, .class-gpt-button, .new-chat-button, .sidebar-toggle-button, .send-button, .view-all-classes-button, .carousel-circle {
+  @apply transition-colors duration-300;
+}
+
+.navbar-button:hover, .sign-in-button:hover, .class-gpt-button:hover, .new-chat-button:hover, .sidebar-toggle-button:hover, .send-button:hover, .view-all-classes-button:hover, .carousel-circle:hover {
+  background-color: #f4c547; /* Updated SVG golden hover color */
+}
+
+/* Apply a golden filter to the logo */
+.filter-logo {
+  filter: invert(53%) sepia(83%) saturate(461%) hue-rotate(1deg) brightness(94%) contrast(93%);
 }

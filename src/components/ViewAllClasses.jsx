@@ -25,26 +25,30 @@ const ViewAllClasses = () => {
   const departments = [...new Set(classData.classes.map((classItem) => classItem.Department))];
 
   return (
-    <div className="container mx-auto p-4">
-      <h2 className="text-2xl font-bold mb-4">All Classes</h2>
-      <div className="flex mb-4">
+    <div className="container mx-auto p-6">
+      <h2 className="text-3xl font-serif text-blue-900 mb-6">All Classes</h2>
+      <div className="flex mb-6">
         <input
           type="text"
           placeholder="Search by class name or code"
           value={searchTerm}
           onChange={handleSearch}
-          className="p-2 border border-gray-300 rounded-lg mr-4"
+          className="p-3 border border-gray-300 rounded-lg mr-4 focus:outline-none focus:border-blue-700 transition-colors duration-300"
         />
-        <select value={filterDepartment} onChange={handleFilter} className="p-2 border border-gray-300 rounded-lg">
+        <select 
+          value={filterDepartment} 
+          onChange={handleFilter} 
+          className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-700 transition-colors duration-300"
+        >
           <option value="">All Departments</option>
           {departments.map((department) => (
             <option key={department} value={department}>{department}</option>
           ))}
         </select>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredClasses.map((classItem) => (
-          <div key={classItem.id} className="class-item p-4">
+          <div key={classItem.id} className="class-item">
             <ClassListing item={classItem} />
           </div>
         ))}

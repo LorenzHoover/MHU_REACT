@@ -25,3 +25,7 @@ dist-ssr
 
 # Environment variables
 .env
+
+#Login Credentials
+/src/loginCredentials.json
+
