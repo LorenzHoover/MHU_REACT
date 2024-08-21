@@ -1,61 +1,77 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import loginCredentials from '../loginCredentials.json';
+import React, { useState, useEffect } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
+import head from '../assets/images/head.svg'; // Adjust the path based on your project structure
 
-const LoginPage = ({ onLogin }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+const LoginPage = () => {
+  const { loginWithRedirect, handleRedirectCallback, isAuthenticated } = useAuth0();
+  const [email, setEmail] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate();
 
-  const handleLogin = (e) => {
-    e.preventDefault();
+  useEffect(() => {
+    const handleAuth = async () => {
+      if (window.location.search.includes('code=')) {
+        try {
+          await handleRedirectCallback();
+          // Optionally redirect to the home page or another page
+          window.location.replace('/home'); // Adjust the redirect as needed
+        } catch (error) {
+          console.error('Error handling redirect callback:', error);
+          setError('Authentication failed. Please try again.');
+        }
+      }
+    };
+    handleAuth();
+  }, []);
 
-    const user = loginCredentials.users.find(
-      (user) => user.username === username && user.password === password
-    );
+  const handleLogin = () => {
+    const emailDomain = email.split('@')[1];
+    if (emailDomain !== 'mhu.edu') {
+      setError('Please use a valid mhu.edu email address.');
+      return;
+    }
 
-    if (user) {
-      onLogin();
-      navigate('/'); // Redirect to the home page after successful login
-    } else {
-      setError('Invalid username or password');
+    loginWithRedirect({
+      connection: 'email', // Ensure it's using the passwordless email connection
+      email,
+    });
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleLogin();
     }
   };
 
+  if (isAuthenticated) {
+    // Redirect if already authenticated
+    window.location.replace('/home'); // Adjust the redirect as needed
+  }
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex flex-col items-center justify-center" style={{ backgroundColor: '#002D72' }}>
+      <img src={head} alt="Head Icon" className="mb-8 w-32 h-32" /> {/* Adjust size as needed */}
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h1 className="text-3xl font-bold text-blue-900 mb-6 text-center">Log In</h1>
-        <form onSubmit={handleLogin}>
-          <div className="mb-4">
-            <label className="block text-gray-700">Username</label>
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              className="w-full p-2 border border-gray-300 rounded-lg"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700">Password</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full p-2 border border-gray-300 rounded-lg"
-              required
-            />
-          </div>
-          {error && <p className="text-red-500 text-center mb-4">{error}</p>}
-          <button
-            type="submit"
-            className="w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-[#f2ae00] transition-colors duration-300"
-          >
-            Log In
-          </button>
-        </form>
+        <input
+          type="email"
+          placeholder="Enter your MHU email address"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          onKeyPress={handleKeyPress} // Add keypress listener
+          className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
+        />
+        <button
+          onClick={handleLogin}
+          className="w-full py-2 rounded-lg transition-colors duration-300"
+          style={{
+            backgroundColor: '#000000', // Black
+            color: '#FFFFFF', // White text color for contrast
+          }}
+          onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#F2AE00'} // Mars Hill Yellow on hover
+          onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#000000'}  // Revert to Black on mouse out
+        >
+          Log In
+        </button>
+        {error && <p className="text-red-500 mt-4">{error}</p>}
       </div>
     </div>
   );

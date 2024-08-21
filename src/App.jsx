@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useAuth0, Auth0Provider } from '@auth0/auth0-react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import HomeCards from './components/HomeCards';
@@ -9,38 +10,44 @@ import ClassDetail from './components/ClassDetail';
 import LoginPage from './components/LoginPage';
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { isAuthenticated, loginWithRedirect, logout, isLoading } = useAuth0();
 
-  const handleLogin = () => {
-    setIsLoggedIn(true);
-  };
-
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-  };
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <Router>
       <div className="min-h-screen flex flex-col">
-        <Navbar isLoggedIn={isLoggedIn} onLogout={handleLogout} />
+        <Navbar isLoggedIn={isAuthenticated} onLogout={() => logout({ returnTo: window.location.origin })} />
         <main className="flex-grow">
           <Routes>
             <Route
               path="/"
               element={
-                isLoggedIn ? (
+                isAuthenticated ? (
                   <>
                     <Hero />
                     <HomeCards />
                     <ClassListings />
                   </>
                 ) : (
-                  <LoginPage onLogin={handleLogin} />
+                  <LoginPage onLogin={loginWithRedirect} />
                 )
               }
             />
-            <Route path="/class/:classId" element={isLoggedIn ? <ClassDetail /> : <LoginPage onLogin={handleLogin} />} />
-            <Route path="/view-all-classes" element={isLoggedIn ? <ViewAllClasses /> : <LoginPage onLogin={handleLogin} />} />
+            <Route
+              path="/class/:classId"
+              element={
+                isAuthenticated ? <ClassDetail /> : <LoginPage onLogin={loginWithRedirect} />
+              }
+            />
+            <Route
+              path="/view-all-classes"
+              element={
+                isAuthenticated ? <ViewAllClasses /> : <LoginPage onLogin={loginWithRedirect} />
+              }
+            />
           </Routes>
         </main>
         <footer className="bg-blue-900 text-white text-center py-4">
@@ -51,4 +58,25 @@ const App = () => {
   );
 };
 
-export default App;
+const onRedirectCallback = (appState) => {
+  window.history.replaceState(
+    {},
+    document.title,
+    appState?.returnTo || window.location.pathname
+  );
+};
+
+const AppWithAuth0 = () => (
+  <Auth0Provider
+    domain={import.meta.env.VITE_AUTH0_DOMAIN}
+    clientId={import.meta.env.VITE_AUTH0_CLIENT_ID}
+    authorizationParams={{
+      redirect_uri: window.location.origin,
+    }}
+    onRedirectCallback={onRedirectCallback}
+  >
+    <App />
+  </Auth0Provider>
+);
+
+export default AppWithAuth0;
