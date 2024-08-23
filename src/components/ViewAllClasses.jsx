@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import classData from '../classes.json'; // Ensure the path to your JSON file is correct
 import ClassListing from './ClassListing'; // Import the ClassListing component
 
 const ViewAllClasses = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filterDepartment, setFilterDepartment] = useState('');
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(searchTerm);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm);
+    }, 300); // 300ms debounce delay
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [searchTerm]);
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
@@ -16,8 +27,8 @@ const ViewAllClasses = () => {
 
   const filteredClasses = classData.classes.filter((classItem) => {
     return (
-      (classItem['Class Name'].toLowerCase().includes(searchTerm.toLowerCase()) ||
-      classItem['Class Code'].toLowerCase().includes(searchTerm.toLowerCase())) &&
+      (classItem['Class Name'].toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
+      classItem['Class Code'].toLowerCase().includes(debouncedSearchTerm.toLowerCase())) &&
       (filterDepartment === '' || classItem.Department === filterDepartment)
     );
   });
@@ -47,11 +58,15 @@ const ViewAllClasses = () => {
         </select>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredClasses.map((classItem) => (
-          <div key={classItem.id} className="class-item">
-            <ClassListing item={classItem} />
-          </div>
-        ))}
+        {filteredClasses.length > 0 ? (
+          filteredClasses.map((classItem) => (
+            <div key={classItem.id} className="class-item">
+              <ClassListing item={classItem} />
+            </div>
+          ))
+        ) : (
+          <p className="text-center text-gray-600 col-span-3">No classes found.</p>
+        )}
       </div>
     </div>
   );

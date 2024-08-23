@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import mhulogo from '../assets/images/mhulogo.svg';
 
 const Navbar = ({ isLoggedIn, onLogout }) => {
@@ -24,12 +24,16 @@ const Navbar = ({ isLoggedIn, onLogout }) => {
 
         {/* Right-aligned buttons */}
         <div className="flex space-x-4"> {/* Added more spacing between buttons */}
-          <Link
+          <NavLink
             to="/"
-            className="text-blue-900 bg-white hover:bg-[#f4c547] hover:text-white rounded-md px-3 py-2 transition-colors duration-300"
+            className={({ isActive }) =>
+              `text-blue-900 bg-white hover:bg-[#f4c547] hover:text-white rounded-md px-3 py-2 transition-colors duration-300 ${
+                isActive ? 'bg-[#f4c547] text-white' : ''
+              }`
+            }
           >
             Home
-          </Link>
+          </NavLink>
           <a
             href="https://www.mhu.edu/"
             className="text-blue-900 bg-white hover:bg-[#f4c547] hover:text-white rounded-md px-3 py-2 transition-colors duration-300"

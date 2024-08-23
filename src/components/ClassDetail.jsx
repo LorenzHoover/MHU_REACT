@@ -11,7 +11,7 @@ const ClassDetail = () => {
   const [chatInput, setChatInput] = useState('');
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true); // State for sidebar visibility
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const classItem = classData.classes.find((item) => item.id === parseInt(classId));
   const [assistantId, setAssistantId] = useState(null);
 
@@ -26,16 +26,16 @@ const ClassDetail = () => {
     if (chatInput.trim() === '' || !assistantId) return;
 
     const userMessage = { sender: 'user', text: chatInput, timestamp: new Date() };
-    setChatMessages([...chatMessages, userMessage]);
+    setChatMessages((prevMessages) => [...prevMessages, userMessage]);
     setChatInput('');
     setLoading(true);
 
     try {
       const gptResponseText = await fetchGptData(chatInput, assistantId, classItem["Class Name"]);
       const gptMessage = { sender: 'gpt', text: gptResponseText, timestamp: new Date() };
-      setChatMessages([...chatMessages, userMessage, gptMessage]);
+      setChatMessages((prevMessages) => [...prevMessages, userMessage, gptMessage]);
     } catch (error) {
-      setError(error.message);
+      setError(error.message || 'Failed to send message');
       console.error('Error sending message:', error);
     } finally {
       setLoading(false);
@@ -53,7 +53,7 @@ const ClassDetail = () => {
   };
 
   const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
+    setIsSidebarOpen((prev) => !prev);
   };
 
   if (!classItem) {
@@ -76,12 +76,14 @@ const ClassDetail = () => {
               <button
                 onClick={startNewChat}
                 className="new-chat-button bg-blue-900 text-white px-4 py-2 rounded-lg mr-2 transition-colors duration-300 hover:bg-[#f2ae00]"
+                aria-label="Start a new chat"
               >
                 New Chat
               </button>
               <button
                 onClick={toggleSidebar}
                 className="sidebar-toggle-button bg-gray-600 text-white px-4 py-2 rounded-lg transition-colors duration-300 hover:bg-[#f2ae00]"
+                aria-label={isSidebarOpen ? 'Close Sidebar' : 'Open Sidebar'}
               >
                 {isSidebarOpen ? 'Close Sidebar' : 'Open Sidebar'}
               </button>
@@ -108,6 +110,7 @@ const ClassDetail = () => {
             <button
               onClick={handleSend}
               className="send-button bg-blue-900 text-white px-4 py-2 rounded-lg transition-colors duration-300 hover:bg-[#f2ae00]"
+              aria-label="Send message"
             >
               Send
             </button>

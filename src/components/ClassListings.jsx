@@ -51,6 +51,7 @@ const ClassListings = () => {
           <button
             key={pageIndex}
             onClick={() => handleClick(pageIndex)}
+            aria-label={`Go to page ${pageIndex + 1}`}
             className={`carousel-circle w-4 h-4 mx-1 rounded-full ${
               pageIndex === currentPage
                 ? 'bg-blue-900'

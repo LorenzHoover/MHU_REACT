@@ -1,52 +1,34 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { useAuth0, Auth0Provider } from '@auth0/auth0-react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import HomeCards from './components/HomeCards';
 import ClassListings from './components/ClassListings';
 import ViewAllClasses from './components/ViewAllClasses';
 import ClassDetail from './components/ClassDetail';
-import LoginPage from './components/LoginPage';
 
 const App = () => {
-  const { isAuthenticated, loginWithRedirect, logout, isLoading } = useAuth0();
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <Router>
       <div className="min-h-screen flex flex-col">
-        <Navbar isLoggedIn={isAuthenticated} onLogout={() => logout({ returnTo: window.location.origin })} />
+        <Navbar />
         <main className="flex-grow">
           <Routes>
             <Route
               path="/"
               element={
-                isAuthenticated ? (
-                  <>
-                    <Hero />
-                    <HomeCards />
-                    <ClassListings />
-                  </>
-                ) : (
-                  <LoginPage onLogin={loginWithRedirect} />
-                )
+                <>
+                  <Hero />
+                  <HomeCards />
+                  <ClassListings />
+                </>
               }
             />
+            <Route path="/class/:classId" element={<ClassDetail />} />
+            <Route path="/view-all-classes" element={<ViewAllClasses />} />
             <Route
-              path="/class/:classId"
-              element={
-                isAuthenticated ? <ClassDetail /> : <LoginPage onLogin={loginWithRedirect} />
-              }
-            />
-            <Route
-              path="/view-all-classes"
-              element={
-                isAuthenticated ? <ViewAllClasses /> : <LoginPage onLogin={loginWithRedirect} />
-              }
+              path="*"
+              element={<div className="text-center p-6">404: Page Not Found</div>}
             />
           </Routes>
         </main>
@@ -58,25 +40,4 @@ const App = () => {
   );
 };
 
-const onRedirectCallback = (appState) => {
-  window.history.replaceState(
-    {},
-    document.title,
-    appState?.returnTo || window.location.pathname
-  );
-};
-
-const AppWithAuth0 = () => (
-  <Auth0Provider
-    domain={import.meta.env.VITE_AUTH0_DOMAIN}
-    clientId={import.meta.env.VITE_AUTH0_CLIENT_ID}
-    authorizationParams={{
-      redirect_uri: window.location.origin,
-    }}
-    onRedirectCallback={onRedirectCallback}
-  >
-    <App />
-  </Auth0Provider>
-);
-
-export default AppWithAuth0;
+export default App;

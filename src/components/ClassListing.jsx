@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const ClassListing = ({ item }) => {
@@ -29,6 +30,7 @@ const ClassListing = ({ item }) => {
           <Link
             to={`/class/${item.id}`}
             className="class-gpt-button h-[36px] bg-blue-900 text-white px-4 py-2 rounded-lg text-center text-sm transition-colors duration-300 hover:bg-[#f4c547]"
+            aria-label={`Go to GPT Assistant for ${item["Class Name"]}`}
           >
             Class GPT
           </Link>
@@ -36,6 +38,19 @@ const ClassListing = ({ item }) => {
       </div>
     </div>
   );
+};
+
+ClassListing.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    "Class Code": PropTypes.string.isRequired,
+    "Class Name": PropTypes.string.isRequired,
+    Professor: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired,
+    "Contact Email": PropTypes.string.isRequired,
+    Department: PropTypes.string.isRequired,
+    Location: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default ClassListing;

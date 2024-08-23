@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Hero = ({title = "Mars Hill Univeristy Study Lion", subtitle = "AI Leveraged Learning"}) => {
+const Hero = ({ title = "Mars Hill University Study Lion", subtitle = "AI Leveraged Learning" }) => {
   return (
     <section className="bg-blue-900 py-20 mb-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">

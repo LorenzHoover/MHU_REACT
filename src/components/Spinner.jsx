@@ -1,9 +1,19 @@
 import React from 'react';
 
-const Spinner = () => {
+const Spinner = ({ size = 12, color = '#f2ae00', borderSize = 4 }) => {
   return (
     <div className="flex justify-center items-center">
-      <div className="loader ease-linear rounded-full border-4 border-t-4 border-blue-900 h-12 w-12" style={{ borderTopColor: '#f2ae00' }}></div>
+      <div
+        className={`loader ease-linear rounded-full border-${borderSize} border-t-${borderSize}`}
+        style={{
+          width: `${size * 4}px`,
+          height: `${size * 4}px`,
+          borderColor: `${color} transparent`,
+          borderTopColor: color,
+          animation: 'spin 1s linear infinite',
+        }}
+        aria-label="Loading"
+      ></div>
     </div>
   );
 };
