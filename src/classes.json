@@ -9,7 +9,8 @@
       "Department": "Business Administration",
       "Description": "An introduction to the principles of management, focusing on the organizational and behavioral aspects of management in a variety of business contexts.",
       "Location": "Main Hall, Room 101",
-      "CustomGptId": "asst_UZb3CskhqzVAN4Nt8nnKYSlD"
+      "CustomGptId": "asst_UZb3CskhqzVAN4Nt8nnKYSlD",
+      "VectorStorageId": "vs_DZJqZSQ9sEoFNPGiZFr6kn2C"
     },
     {
       "id": 2,
@@ -20,7 +21,8 @@
       "Department": "Business Administration",
       "Description": "This course covers the fundamentals of negotiation and sales strategies, providing students with practical skills and techniques for successful sales outcomes.",
       "Location": "Commerce Building, Room 202",
-      "CustomGptId": "asst_v04bVYOEvwj9iKCNeYxYtse1"
+      "CustomGptId": "asst_v04bVYOEvwj9iKCNeYxYtse1",
+      "VectorStorageId": "vs_dpRFasHavqVSRGypVkB1FVuA"
     },
     {
       "id": 3,
@@ -31,7 +33,8 @@
       "Department": "Business Administration",
       "Description": "A study of the legal and ethical issues in business, examining the impact of laws and ethical standards on business operations and decision-making.",
       "Location": "Law Building, Room 303",
-      "CustomGptId": "asst_gnKTve90HoO30RpTYzHcyolu"
+      "CustomGptId": "asst_gnKTve90HoO30RpTYzHcyolu",
+      "VectorStorageId": null
     },
     {
       "id": 4,
@@ -42,7 +45,8 @@
       "Department": "Business Administration",
       "Description": "This course focuses on developing leadership skills, exploring various leadership styles and their effectiveness in different organizational contexts.",
       "Location": "Leadership Hall, Room 204",
-      "CustomGptId": "asst_D8Md7MWqfBIQP1X3VdKYwXc7"
+      "CustomGptId": "asst_D8Md7MWqfBIQP1X3VdKYwXc7",
+      "VectorStorageId": "vs_1rci7K1ZPDiRMlj46oPYAS8m"
     },
     {
       "id": 5,
@@ -53,7 +57,8 @@
       "Department": "Business Administration",
       "Description": "A capstone course that integrates knowledge and skills from previous business courses, emphasizing strategic management and decision-making.",
       "Location": "Seminar Building, Room 305",
-      "CustomGptId": "asst_0kmXKEfZaXqc7vfaiUGOcUVE"
+      "CustomGptId": "asst_0kmXKEfZaXqc7vfaiUGOcUVE",
+      "VectorStorageId": "vs_vzvlsbuaRy4BgvNEFfu15aKk"
     },
     {
       "id": 6,
@@ -64,7 +69,8 @@
       "Department": "Career Services",
       "Description": "An exploration of artificial intelligence applications in career development, including resume building, job search strategies, and interview preparation.",
       "Location": "Career Center, Room 101",
-      "CustomGptId": "asst_3P0MBC72jk9D9VPMdhFQoxyX"
+      "CustomGptId": "asst_3P0MBC72jk9D9VPMdhFQoxyX",
+      "VectorStorageId": "vs_zFiuI2Gkoi7ug9UuW5S4AaIu"
     },
     {
       "id": 7,
@@ -75,7 +81,8 @@
       "Department": "Various",
       "Description": "A general study hall class providing a quiet and resourceful environment for students to focus on their studies and complete assignments.",
       "Location": "Grainger Hall, Room C",
-      "CustomGptId": "asst_ePrGUNdkQBLrKbOtyxeyhLKE"
+      "CustomGptId": "asst_ePrGUNdkQBLrKbOtyxeyhLKE",
+      "VectorStorageId": null
     }
   ]
 }

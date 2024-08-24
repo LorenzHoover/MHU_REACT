@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import classData from '../classes.json';
 import { fetchGptData } from '../../functions/getCustomGpt';
-import { getAssistantId } from '../../functions/getAssistantId';
-import Spinner from './Spinner';
+import { getAssistantInfo } from '../../functions/getAssistantId';
+import Spinner from './Spinner';  // Import the Spinner component
+import { marked } from 'marked';  // Correctly import marked
 
 const ClassDetail = () => {
   const { classId } = useParams();
@@ -13,27 +14,34 @@ const ClassDetail = () => {
   const [loading, setLoading] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const classItem = classData.classes.find((item) => item.id === parseInt(classId));
-  const [assistantId, setAssistantId] = useState(null);
+  const [assistantInfo, setAssistantInfo] = useState({ assistantId: null, vectorStorageId: null });
 
   useEffect(() => {
     if (classItem) {
-      const assistantId = getAssistantId(classItem["Class Code"]);
-      setAssistantId(assistantId);
+      const info = getAssistantInfo(classItem["Class Code"]);
+      setAssistantInfo(info);
     }
   }, [classItem]);
 
   const handleSend = async () => {
-    if (chatInput.trim() === '' || !assistantId) return;
+    if (chatInput.trim() === '' || !assistantInfo.assistantId) return;
 
+    // Add the user message only once
     const userMessage = { sender: 'user', text: chatInput, timestamp: new Date() };
     setChatMessages((prevMessages) => [...prevMessages, userMessage]);
     setChatInput('');
     setLoading(true);
 
     try {
-      const gptResponseText = await fetchGptData(chatInput, assistantId, classItem["Class Name"]);
-      const gptMessage = { sender: 'gpt', text: gptResponseText, timestamp: new Date() };
-      setChatMessages((prevMessages) => [...prevMessages, userMessage, gptMessage]);
+      // Fetch the GPT response
+      const gptResponseText = await fetchGptData(chatInput, classItem["Class Code"]);
+
+      // Convert the GPT response from markdown to HTML
+      const gptResponseHtml = marked(gptResponseText);
+
+      // Add the GPT message only once
+      const gptMessage = { sender: 'gpt', text: gptResponseHtml, timestamp: new Date() };
+      setChatMessages((prevMessages) => [...prevMessages, gptMessage]);
     } catch (error) {
       setError(error.message || 'Failed to send message');
       console.error('Error sending message:', error);
@@ -92,10 +100,11 @@ const ClassDetail = () => {
           <div className="flex-1 overflow-y-auto border border-gray-300 p-4 bg-white mb-4 shadow-md">
             {chatMessages.map((message, index) => (
               <div key={index} className={`p-2 my-2 ${message.sender === 'gpt' ? 'text-left' : 'text-right'} text-base`}>
-                {message.text}
+                {/* Render the message as HTML for GPT responses */}
+                <div dangerouslySetInnerHTML={{ __html: message.text }} />
               </div>
             ))}
-            {loading && <Spinner />}
+            {loading && <Spinner />} {/* Display Spinner when loading */}
           </div>
           {error && <div className="text-red-600">{error}</div>}
           <div className="flex items-center border-t border-gray-300 pt-4">

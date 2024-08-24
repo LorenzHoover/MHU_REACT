@@ -1,7 +1,13 @@
 // functions/getAssistantId.js
 import classesData from '../src/classes.json';
 
-export const getAssistantId = (classCode) => {
+export const getAssistantInfo = (classCode) => {
   const classItem = classesData.classes.find(cls => cls["Class Code"] === classCode);
-  return classItem ? classItem.CustomGptId : null;
+  if (classItem) {
+    return {
+      assistantId: classItem.CustomGptId,
+      vectorStorageId: classItem.VectorStorageId
+    };
+  }
+  return null;
 };
