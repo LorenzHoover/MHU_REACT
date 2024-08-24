@@ -26,11 +26,7 @@ const Navbar = ({ isLoggedIn, onLogout }) => {
         <div className="flex space-x-4"> {/* Added more spacing between buttons */}
           <NavLink
             to="/"
-            className={({ isActive }) =>
-              `text-blue-900 bg-white hover:bg-[#f4c547] hover:text-white rounded-md px-3 py-2 transition-colors duration-300 ${
-                isActive ? 'bg-[#f4c547] text-white' : ''
-              }`
-            }
+            className="bg-[#f4c547] text-white rounded-md px-3 py-2 transition-colors duration-300"
           >
             Home
           </NavLink>

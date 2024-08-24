@@ -26,7 +26,7 @@ const Carousel = () => {
 
   return (
     <div className="relative w-full mx-auto rounded-lg overflow-hidden">
-      <div className="relative h-64 md:h-80">
+      <div className="relative h-96 md:h-112"> {/* Increased the height */}
         {images.map((image, index) => (
           <div
             key={index}
@@ -37,21 +37,21 @@ const Carousel = () => {
             <img
               src={image.src}
               alt={`Slide ${index}`}
-              className="w-full h-full object-cover rounded-b-lg"
+              className="w-full h-full object-cover rounded-lg" // Remove rounded-b-lg to round all corners
             />
           </div>
         ))}
       </div>
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-blue-900 text-white px-4 py-2 rounded-full transition-colors duration-300 hover:bg-[#f4c547]"
+        className="absolute top-1/2 left-6 transform -translate-y-1/2 bg-blue-900 text-white px-4 py-2 rounded-full transition-colors duration-300 hover:bg-[#f4c547]"
         aria-label="Previous Slide"
       >
         &#10094;
       </button>
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-blue-900 text-white px-4 py-2 rounded-full transition-colors duration-300 hover:bg-[#f4c547]"
+        className="absolute top-1/2 right-6 transform -translate-y-1/2 bg-blue-900 text-white px-4 py-2 rounded-full transition-colors duration-300 hover:bg-[#f4c547]"
         aria-label="Next Slide"
       >
         &#10095;

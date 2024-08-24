@@ -11,7 +11,7 @@ const ClassDetail = () => {
   const [chatMessages, setChatMessages] = useState([]);
   const [chatInput, setChatInput] = useState('');
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);  // State to manage loading spinner
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const classItem = classData.classes.find((item) => item.id === parseInt(classId));
   const [assistantInfo, setAssistantInfo] = useState({ assistantId: null, vectorStorageId: null });
@@ -30,7 +30,7 @@ const ClassDetail = () => {
     const userMessage = { sender: 'user', text: chatInput, timestamp: new Date() };
     setChatMessages((prevMessages) => [...prevMessages, userMessage]);
     setChatInput('');
-    setLoading(true);
+    setLoading(true);  // Start loading spinner
 
     try {
       // Fetch the GPT response
@@ -46,7 +46,7 @@ const ClassDetail = () => {
       setError(error.message || 'Failed to send message');
       console.error('Error sending message:', error);
     } finally {
-      setLoading(false);
+      setLoading(false);  // Stop loading spinner
     }
   };
 
@@ -104,7 +104,7 @@ const ClassDetail = () => {
                 <div dangerouslySetInnerHTML={{ __html: message.text }} />
               </div>
             ))}
-            {loading && <Spinner />} {/* Display Spinner when loading */}
+            {loading && <Spinner />}  {/* Display Spinner when loading */}
           </div>
           {error && <div className="text-red-600">{error}</div>}
           <div className="flex items-center border-t border-gray-300 pt-4">

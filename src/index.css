@@ -28,10 +28,11 @@ li:hover {
   text-decoration: underline;
 }
 
-/* Loader styles */
+/* Loader (Spinner) styles */
 .loader {
   border-top-color: #3498db;
   animation: spin 1s linear infinite;
+  border-radius: 50%;
 }
 
 @keyframes spin {
