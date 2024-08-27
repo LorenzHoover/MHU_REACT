@@ -34,7 +34,7 @@
       "Description": "A study of the legal and ethical issues in business, examining the impact of laws and ethical standards on business operations and decision-making.",
       "Location": "Law Building, Room 303",
       "CustomGptId": "asst_gnKTve90HoO30RpTYzHcyolu",
-      "VectorStorageId": null
+      "VectorStorageId": "vs_ke8cqLFyWbbXmRfGTapavjAb"
     },
     {
       "id": 4,
@@ -46,7 +46,7 @@
       "Description": "This course focuses on developing leadership skills, exploring various leadership styles and their effectiveness in different organizational contexts.",
       "Location": "Leadership Hall, Room 204",
       "CustomGptId": "asst_D8Md7MWqfBIQP1X3VdKYwXc7",
-      "VectorStorageId": "vs_1rci7K1ZPDiRMlj46oPYAS8m"
+      "VectorStorageId": "vs_amtfJfFQlBafykP4bG9TezIf"
     },
     {
       "id": 5,
