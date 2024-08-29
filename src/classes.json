@@ -3,7 +3,7 @@
     {
       "id": 1,
       "Class Code": "BA 236",
-      "Class Name": "Prin Mngt Study Lion",
+      "Class Name": "Principles of Management",
       "Professor": "Beth Cessna",
       "Contact Email": "beth.cessna@university.edu",
       "Department": "Business Administration",
@@ -15,7 +15,7 @@
     {
       "id": 2,
       "Class Code": "BA 327",
-      "Class Name": "Neg & Sales Study Lion",
+      "Class Name": "Negotiations and Sales",
       "Professor": "Chris D",
       "Contact Email": "chris.d@university.edu",
       "Department": "Business Administration",
@@ -27,7 +27,7 @@
     {
       "id": 3,
       "Class Code": "BA 370",
-      "Class Name": "Law & Ethics Study Lion",
+      "Class Name": "Law and Ethics",
       "Professor": "James H",
       "Contact Email": "james.h@university.edu",
       "Department": "Business Administration",
@@ -39,7 +39,7 @@
     {
       "id": 4,
       "Class Code": "BA 420",
-      "Class Name": "Leadership Dev Study Lion",
+      "Class Name": "Leadership Development",
       "Professor": "Dave R",
       "Contact Email": "dave.r@university.edu",
       "Department": "Business Administration",
@@ -51,7 +51,7 @@
     {
       "id": 5,
       "Class Code": "BA 450",
-      "Class Name": "Sr. Seminar Study Lion",
+      "Class Name": "Senior Seminar",
       "Professor": "Chris D",
       "Contact Email": "chris.d@university.edu",
       "Department": "Business Administration",
@@ -75,7 +75,7 @@
     {
       "id": 7,
       "Class Code": "Grainger C",
-      "Class Name": "MHU Study Lion",
+      "Class Name": "General Study Hall",
       "Professor": "MHU Study Lion",
       "Contact Email": "mhu.studylion@university.edu",
       "Department": "Various",
