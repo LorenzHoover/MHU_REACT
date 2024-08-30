@@ -6,27 +6,12 @@ import HeadLogo from './assets/images/head.svg';
 export default function Example() {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
-  const [showContactForm, setShowContactForm] = useState(false); 
+  const [showContactForm, setShowContactForm] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
 
   // Determine the correct redirect URL based on the current environment
   const getRedirectUrl = () => {
-    const currentUrl = window.location.origin;
-
-    if (currentUrl.includes('www.mhustudylion.com')) {
-      return import.meta.env.VITE_REDIRECT_URL_PROD;
-    } else if (currentUrl.includes('mhustudylion.com')) {
-      return import.meta.env.VITE_REDIRECT_URL_PROD_NON_WWW;
-    } else if (currentUrl.includes('mhu-react.vercel.app')) {
-      return import.meta.env.VITE_REDIRECT_URL_PROD;
-    } else if (currentUrl.includes('mhu-react-git-main-lorenz-hoovers-projects.vercel.app')) {
-      return import.meta.env.VITE_REDIRECT_URL_GIT_MAIN;
-    } else if (currentUrl.includes('mhu-react-bujkl09rq-lorenz-hoovers-projects.vercel.app')) {
-      return import.meta.env.VITE_REDIRECT_URL_BUJ;
-    } else if (currentUrl.includes('mhu-react-lorenz-hoovers-projects.vercel.app')) {
-      return import.meta.env.VITE_REDIRECT_URL_LOR;
-    } else {
-      return import.meta.env.VITE_REDIRECT_URL_PROD; // Default to production
-    }
+    return import.meta.env.VITE_REDIRECT_URL;
   };
 
   const handleSubmit = async (event) => {
@@ -45,6 +30,14 @@ export default function Example() {
         });
         if (error) throw error;
         console.log("Sign-in email sent successfully");
+
+        // Show notification to the user
+        setShowNotification(true);
+
+        // Hide the notification after a few seconds
+        setTimeout(() => {
+          setShowNotification(false);
+        }, 5000); // Hide after 5 seconds
       } catch (error) {
         console.error("Error during sign-in:", error.message);
         setError("Sign-in failed. Please try again.");
@@ -109,6 +102,13 @@ export default function Example() {
       </div>
 
       {showContactForm && <ContactUs />}
+
+      {/* Notification */}
+      {showNotification && (
+        <div className="fixed bottom-4 right-4 bg-[#F2AE00] text-white p-4 rounded shadow-lg">
+          A sign-in link has been sent to your email. Please check your inbox.
+        </div>
+      )}
     </>
   );
 }
