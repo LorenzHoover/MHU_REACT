@@ -4,6 +4,7 @@ import classData from '../classes.json';
 import { fetchGptData } from '../../functions/getCustomGpt';
 import { getAssistantInfo } from '../../functions/getAssistantId';
 import Spinner from './Spinner';
+import FAQDropdown from './FAQDropdown'; // Import the updated FAQDropdown component
 import { marked } from 'marked';
 
 const ClassDetail = () => {
@@ -69,12 +70,21 @@ const ClassDetail = () => {
         {isSidebarOpen && (
           <div className="w-1/4 bg-gray-200 p-4 border-r border-gray-300">
             <h2 className="text-2xl font-bold text-blue-900 mb-4">Class Information</h2>
-            {/* Placeholder content for sidebar */}
             <p className="text-base text-gray-700">Professor: {classItem.Professor}</p>
             <p className="text-base text-gray-700">Department: {classItem.Department}</p>
             <p className="text-base text-gray-700">Location: {classItem.Location}</p>
             <p className="text-base text-gray-700 mt-4">Description:</p>
             <p className="text-sm text-gray-600">{classItem.Description}</p>
+
+            {/* Quick FAQ Section */}
+            <div className="mt-4">
+              <h3 className="text-2xl font-extrabold text-gray-900 mb-4">Frequently Asked Questions</h3>
+              <FAQDropdown question="How do I start a new chat with the class assistant?" answer="To start a new chat, simply click the 'New Chat' button located at the top of the chat window." />
+              <FAQDropdown question="Can I access previous chat conversations?" answer="Currently, the application does not save chat histories. Consider copying important responses before starting a new chat." />
+              <FAQDropdown question="Where can I find my class materials?" answer="Class materials can be found in the 'Resources' section of the sidebar. Click on the relevant links to download or preview files." />
+              <FAQDropdown question="What types of questions can I ask the class assistant?" answer="The class assistant can help with course-related questions, clarifications on assignments, explanations of key concepts, and study tips." />
+              <FAQDropdown question="How do I use the assistant to prepare for exams?" answer="You can use the assistant to review key concepts, practice potential exam questions, and receive study tips tailored to your course." />
+            </div>
           </div>
         )}
         <div className={`flex-1 p-4 flex flex-col ${isSidebarOpen ? 'w-3/4' : 'w-full'}`}>

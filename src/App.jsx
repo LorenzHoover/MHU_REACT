@@ -8,6 +8,8 @@ import Footer from './components/Footer'; // Import the Footer component
 import AboutUs from './components/AboutUs'; // Import the About Us component
 import MissionStatement from './components/MissionStatement'; // Import the Mission Statement component
 import Carousel from './components/Carousel'; // Import the Carousel component
+import ContactUs from './components/ContactUs'; // Import the Contact Us component
+import PrivacyPolicy from './components/PrivacyPolicy'; // Import the Privacy Policy component
 
 const App = () => {
   return (
@@ -23,12 +25,14 @@ const App = () => {
                   <Hero /> {/* MHU Study Lion Section */}
                   <Carousel /> {/* Carousel */}
                   <MissionStatement /> {/* Mission Statement section */}
+                  <ContactUs /> {/* Contact Us section */}
                 </>
               }
             />
             <Route path="/view-all-classes" element={<ViewAllClasses />} />
             <Route path="/class/:classId" element={<ClassDetail />} />
             <Route path="/about-us" element={<AboutUs />} /> {/* About Us route */}
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} /> {/* Privacy Policy route */}
             <Route
               path="*"
               element={<div className="text-center p-6">404: Page Not Found</div>}
