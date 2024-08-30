@@ -2,6 +2,7 @@
     "redirects": [
       {
         "source": "/(.*)",
+        "has": [{ "type": "host", "value": "mhustudylion.com" }],
         "destination": "https://www.mhustudylion.com/$1",
         "permanent": true
       }
