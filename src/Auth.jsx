@@ -1,12 +1,29 @@
 import { useState } from 'react';
-import { supabase } from '../src/supabase/supabaseClient'; // Adjust the path if necessary
-import ContactUs from '../src/components/ContactUs'; // Ensure the import path is correct
-import HeadLogo from './assets/images/head.svg'; // Correct path to the SVG
+import { supabase } from '../supabase/supabaseClient';
+import ContactUs from '../components/ContactUs';
+import HeadLogo from '../assets/images/head.svg';
 
 export default function Example() {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const [showContactForm, setShowContactForm] = useState(false); 
+
+  // Determine the correct redirect URL based on the current environment
+  const getRedirectUrl = () => {
+    const currentUrl = window.location.origin;
+
+    if (currentUrl.includes('mhu-react.vercel.app')) {
+      return import.meta.env.VITE_REDIRECT_URL_PROD;
+    } else if (currentUrl.includes('mhu-react-git-main-lorenz-hoovers-projects.vercel.app')) {
+      return import.meta.env.VITE_REDIRECT_URL_GIT_MAIN;
+    } else if (currentUrl.includes('mhu-react-bujkl09rq-lorenz-hoovers-projects.vercel.app')) {
+      return import.meta.env.VITE_REDIRECT_URL_BUJ;
+    } else if (currentUrl.includes('mhu-react-lorenz-hoovers-projects.vercel.app')) {
+      return import.meta.env.VITE_REDIRECT_URL_LOR;
+    } else {
+      return import.meta.env.VITE_REDIRECT_URL_PROD; // Default to production
+    }
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -18,6 +35,9 @@ export default function Example() {
       try {
         const { error } = await supabase.auth.signInWithOtp({
           email,
+          options: {
+            redirectTo: getRedirectUrl(),
+          },
         });
         if (error) throw error;
         console.log("Sign-in email sent successfully");
@@ -34,7 +54,7 @@ export default function Example() {
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             alt="MHU"
-            src={HeadLogo} // Use the imported SVG here
+            src={HeadLogo}
             className="mx-auto h-10 w-auto"
           />
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-[#002D72]">
