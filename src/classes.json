@@ -3,7 +3,11 @@
     {
       "id": 1,
       "Class Code": "BA 236",
+<<<<<<< HEAD
       "Class Name": "Principles of Management",
+=======
+      "Class Name": "Prin Mngt Study Lion",
+>>>>>>> f018782 (saving local but not pushing to main repo)
       "Professor": "Beth Cessna",
       "Contact Email": "beth.cessna@university.edu",
       "Department": "Business Administration",
@@ -15,7 +19,11 @@
     {
       "id": 2,
       "Class Code": "BA 327",
+<<<<<<< HEAD
       "Class Name": "Negotiations and Sales",
+=======
+      "Class Name": "Neg & Sales Study Lion",
+>>>>>>> f018782 (saving local but not pushing to main repo)
       "Professor": "Chris D",
       "Contact Email": "chris.d@university.edu",
       "Department": "Business Administration",
@@ -27,7 +35,11 @@
     {
       "id": 3,
       "Class Code": "BA 370",
+<<<<<<< HEAD
       "Class Name": "Law and Ethics",
+=======
+      "Class Name": "Law & Ethics Study Lion",
+>>>>>>> f018782 (saving local but not pushing to main repo)
       "Professor": "James H",
       "Contact Email": "james.h@university.edu",
       "Department": "Business Administration",
@@ -39,7 +51,11 @@
     {
       "id": 4,
       "Class Code": "BA 420",
+<<<<<<< HEAD
       "Class Name": "Leadership Development",
+=======
+      "Class Name": "Leadership Dev Study Lion",
+>>>>>>> f018782 (saving local but not pushing to main repo)
       "Professor": "Dave R",
       "Contact Email": "dave.r@university.edu",
       "Department": "Business Administration",
@@ -51,7 +67,11 @@
     {
       "id": 5,
       "Class Code": "BA 450",
+<<<<<<< HEAD
       "Class Name": "Senior Seminar",
+=======
+      "Class Name": "Sr. Seminar Study Lion",
+>>>>>>> f018782 (saving local but not pushing to main repo)
       "Professor": "Chris D",
       "Contact Email": "chris.d@university.edu",
       "Department": "Business Administration",
@@ -75,7 +95,11 @@
     {
       "id": 7,
       "Class Code": "Grainger C",
+<<<<<<< HEAD
       "Class Name": "General Study Hall",
+=======
+      "Class Name": "MHU Study Lion",
+>>>>>>> f018782 (saving local but not pushing to main repo)
       "Professor": "MHU Study Lion",
       "Contact Email": "mhu.studylion@university.edu",
       "Department": "Various",

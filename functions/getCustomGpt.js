@@ -3,7 +3,11 @@ import { getAssistantInfo } from './getAssistantId';
 
 export const fetchGptData = async (prompt, classCode) => {
   const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
+<<<<<<< HEAD
   console.log("API Key:", apiKey);
+=======
+  
+>>>>>>> f018782 (saving local but not pushing to main repo)
 
   const assistantInfo = getAssistantInfo(classCode);
   if (!assistantInfo) {

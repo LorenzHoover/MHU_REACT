@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
+<<<<<<< HEAD
 import { FaSearch, FaFilter } from 'react-icons/fa'; // Import icons for search and filter
+=======
+>>>>>>> f018782 (saving local but not pushing to main repo)
 import classData from '../classes.json'; // Ensure the path to your JSON file is correct
 import ClassListing from './ClassListing'; // Import the ClassListing component
 
@@ -38,6 +41,7 @@ const ViewAllClasses = () => {
 
   return (
     <div className="container mx-auto p-6">
+<<<<<<< HEAD
       <h2 className="text-4xl font-serif text-blue-900 mb-8">All Classes</h2>
       
       {/* Search and Filter Section */}
@@ -77,6 +81,32 @@ const ViewAllClasses = () => {
               key={classItem.id} 
               className="class-item bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:translate-y-[-5px]"
             >
+=======
+      <h2 className="text-3xl font-serif text-blue-900 mb-6">All Classes</h2>
+      <div className="flex mb-6">
+        <input
+          type="text"
+          placeholder="Search by class name or code"
+          value={searchTerm}
+          onChange={handleSearch}
+          className="p-3 border border-gray-300 rounded-lg mr-4 focus:outline-none focus:border-blue-700 transition-colors duration-300"
+        />
+        <select 
+          value={filterDepartment} 
+          onChange={handleFilter} 
+          className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-700 transition-colors duration-300"
+        >
+          <option value="">All Departments</option>
+          {departments.map((department) => (
+            <option key={department} value={department}>{department}</option>
+          ))}
+        </select>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filteredClasses.length > 0 ? (
+          filteredClasses.map((classItem) => (
+            <div key={classItem.id} className="class-item">
+>>>>>>> f018782 (saving local but not pushing to main repo)
               <ClassListing item={classItem} />
             </div>
           ))

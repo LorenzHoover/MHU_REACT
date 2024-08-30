@@ -7,6 +7,10 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+<<<<<<< HEAD
+=======
+# Node modules
+>>>>>>> f018782 (saving local but not pushing to main repo)
 node_modules
 dist
 dist-ssr
@@ -23,9 +27,14 @@ dist-ssr
 *.sln
 *.sw?
 
+<<<<<<< HEAD
 # Environment variables
 .env
 
 #Login Credentials
 /src/loginCredentials.json
 
+=======
+# Environment Variables
+.env
+>>>>>>> f018782 (saving local but not pushing to main repo)
