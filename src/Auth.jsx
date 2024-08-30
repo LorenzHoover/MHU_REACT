@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { supabase } from '../supabase/supabaseClient';
-import ContactUs from '../components/ContactUs';
+import { supabase } from './supabase/supabaseClient';
+import ContactUs from './components/ContactUs';
 import HeadLogo from './assets/images/head.svg';
 
 export default function Example() {
