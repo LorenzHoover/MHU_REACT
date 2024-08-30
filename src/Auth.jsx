@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { supabase } from '../supabase/supabaseClient';
 import ContactUs from '../components/ContactUs';
-import HeadLogo from '../assets/images/head.svg';
+import HeadLogo from './assets/images/head.svg';
 
 export default function Example() {
   const [email, setEmail] = useState('');
