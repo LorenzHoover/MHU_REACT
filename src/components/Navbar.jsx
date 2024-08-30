@@ -84,11 +84,13 @@ const Navbar = ({ isLoggedIn, onLogout }) => {
           </NavLink>
 
           <a
-            href="https://www.mhu.edu/"
-            className="navbar-button text-blue-900 bg-white hover:bg-[#f4c547] hover:text-white rounded-md px-3 py-1 text-base flex items-center justify-center transition-colors duration-300"
+           href="https://www.mhu.edu/"
+           target="_blank"
+           className="navbar-button text-blue-900 bg-white hover:bg-[#f4c547] hover:text-white rounded-md px-3 py-1 text-base flex items-center justify-center transition-colors duration-300"
           >
             MHU
           </a>
+
 
           {isLoggedIn && (
             <button
