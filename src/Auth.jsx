@@ -12,7 +12,11 @@ export default function Example() {
   const getRedirectUrl = () => {
     const currentUrl = window.location.origin;
 
-    if (currentUrl.includes('mhu-react.vercel.app')) {
+    if (currentUrl.includes('www.mhustudylion.com')) {
+      return import.meta.env.VITE_REDIRECT_URL_PROD;
+    } else if (currentUrl.includes('mhustudylion.com')) {
+      return import.meta.env.VITE_REDIRECT_URL_PROD_NON_WWW;
+    } else if (currentUrl.includes('mhu-react.vercel.app')) {
       return import.meta.env.VITE_REDIRECT_URL_PROD;
     } else if (currentUrl.includes('mhu-react-git-main-lorenz-hoovers-projects.vercel.app')) {
       return import.meta.env.VITE_REDIRECT_URL_GIT_MAIN;
