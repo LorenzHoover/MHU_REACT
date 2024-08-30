@@ -1,15 +1,13 @@
 import { useState } from 'react';
-// Import supabase client
 import { supabase } from '../src/supabase/supabaseClient'; // Adjust the path if necessary
-import ContactUs from '../src/components/ContactUs' // Ensure the import path is correct
+import ContactUs from '../src/components/ContactUs'; // Ensure the import path is correct
+import HeadLogo from './assets/images/head.svg'; // Correct path to the SVG
 
 export default function Example() {
-  // State hooks for email, error, and form visibility
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
-  const [showContactForm, setShowContactForm] = useState(false); // State to control visibility of ContactUs form
+  const [showContactForm, setShowContactForm] = useState(false); 
 
-  // handleSubmit function to handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -36,7 +34,7 @@ export default function Example() {
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             alt="MHU"
-            src="src/assets/images/head.svg" // Replace with your MHU logo path
+            src={HeadLogo} // Use the imported SVG here
             className="mx-auto h-10 w-auto"
           />
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-[#002D72]">
@@ -86,7 +84,6 @@ export default function Example() {
         </div>
       </div>
 
-      {/* Conditionally render the ContactUs form */}
       {showContactForm && <ContactUs />}
     </>
   );
