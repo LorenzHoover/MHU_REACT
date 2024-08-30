@@ -25,13 +25,8 @@ const Carousel = () => {
   };
 
   return (
-<<<<<<< HEAD
     <div className="relative w-[90%] max-w-6xl mx-auto rounded-lg overflow-hidden"> {/* Adjusted width */}
       <div className="relative h-112 md:h-[600px]"> {/* Increased height */}
-=======
-    <div className="relative w-full mx-auto rounded-lg overflow-hidden">
-      <div className="relative h-96 md:h-112"> {/* Increased the height */}
->>>>>>> f018782 (saving local but not pushing to main repo)
         {images.map((image, index) => (
           <div
             key={index}
@@ -42,11 +37,7 @@ const Carousel = () => {
             <img
               src={image.src}
               alt={`Slide ${index}`}
-<<<<<<< HEAD
               className="w-full h-full object-cover rounded-lg"
-=======
-              className="w-full h-full object-cover rounded-lg" // Remove rounded-b-lg to round all corners
->>>>>>> f018782 (saving local but not pushing to main repo)
             />
           </div>
         ))}
