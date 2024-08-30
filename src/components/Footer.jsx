@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaInstagram, FaTwitter, FaFacebookF } from 'react-icons/fa'; // Import icons from react-icons
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const Footer = () => {
   return (
@@ -32,6 +33,9 @@ const Footer = () => {
       </div>
       <div className="text-center mt-4">
         <p>&copy; 2024 Mars Hill University. All rights reserved.</p>
+        <Link to="/privacy-policy" className="hover:text-[#F4C547] transition-colors duration-300">
+          Privacy Policy
+        </Link>
       </div>
     </footer>
   );
