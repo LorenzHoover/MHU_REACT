@@ -4,9 +4,9 @@ import mhulogo from '../assets/images/mhulogo.svg';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import classData from '../classes.json'; // Import class data
+import { logout } from '../../functions/logout'
 
 const Navbar = ({ isLoggedIn, onLogout }) => {
-  const navigate = useNavigate();
   const [classes, setClasses] = useState([]);
 
   useEffect(() => {
@@ -15,9 +15,9 @@ const Navbar = ({ isLoggedIn, onLogout }) => {
     }
   }, []);
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     onLogout();
-    navigate('/'); // Redirect to the homepage after logging out
+    await logout();
   };
 
   return (
@@ -53,9 +53,8 @@ const Navbar = ({ isLoggedIn, onLogout }) => {
                   {({ active }) => (
                     <Link
                       to={`/class/${classItem.id}`}
-                      className={`${
-                        active ? 'bg-gray-100' : ''
-                      } block px-4 py-2 text-sm text-gray-700`}
+                      className={`${active ? 'bg-gray-100' : ''
+                        } block px-4 py-2 text-sm text-gray-700`}
                     >
                       {classItem["Class Name"]}
                     </Link>
@@ -67,9 +66,8 @@ const Navbar = ({ isLoggedIn, onLogout }) => {
                 {({ active }) => (
                   <NavLink
                     to="/view-all-classes/"
-                    className={`${
-                      active ? 'bg-gray-100' : ''
-                    } block px-4 py-2 text-sm text-gray-700 text-center font-bold`}
+                    className={`${active ? 'bg-gray-100' : ''
+                      } block px-4 py-2 text-sm text-gray-700 text-center font-bold`}
                   >
                     View All Courses
                   </NavLink>
