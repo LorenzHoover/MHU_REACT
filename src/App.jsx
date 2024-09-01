@@ -10,27 +10,46 @@ import MissionStatement from './components/MissionStatement'; // Import the Miss
 import Carousel from './components/Carousel'; // Import the Carousel component
 import ContactUs from './components/ContactUs'; // Import the Contact Us component
 import PrivacyPolicy from './components/PrivacyPolicy'; // Import the Privacy Policy component
-import { supabase } from './supabase/supabaseClient'
-import Auth from './Auth'
+import { supabase } from './supabase/supabaseClient';
+import Auth from './Auth';
+import Spinner from './components/Spinner'; // Import the Spinner component
 
 const App = () => {
-  const [session, setSession] = useState(null)
+  const [session, setSession] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // Check if there is an existing session
     supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session)
-    })
+      setSession(session);
+      setIsLoading(false); // Stop loading after session check
+    });
 
+    // Listen for changes in the authentication state
     supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
-    })
-  }, [])
+      setSession(session);
+    });
+  }, []);
+
+  const handleLogout = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      console.log('Error logging out:', error.message);
+    } else {
+      setSession(null); // Clear the session state
+    }
+  };
+
+  if (isLoading) {
+    return <Spinner size={12} color="#f2ae00" borderSize={4} />; // Replace loading text with Spinner
+  }
+
   return (
     <Router>
       <div className="min-h-screen flex flex-col">
         {!session ? <Auth /> :
           <>
-            <Navbar isLoggedIn={true} onLogout={() => console.log('Logged out')} />
+            <Navbar isLoggedIn={true} onLogout={handleLogout} />
             <main className="flex-grow">
               <Routes>
                 <Route

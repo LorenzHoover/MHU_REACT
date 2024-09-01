@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { supabase } from './supabase/supabaseClient';
 import ContactUs from './components/ContactUs';
 import HeadLogo from './assets/images/head.svg';
@@ -8,11 +8,23 @@ export default function Example() {
   const [error, setError] = useState('');
   const [showContactForm, setShowContactForm] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
+  const [session, setSession] = useState(null);
 
   // Determine the correct redirect URL based on the current environment
   const getRedirectUrl = () => {
     return import.meta.env.VITE_REDIRECT_URL;
   };
+
+  useEffect(() => {
+    // Check if a session already exists
+    const session = supabase.auth.session();
+    setSession(session);
+
+    // Listen for changes to the session (e.g., user logs in or logs out)
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+    });
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -44,6 +56,11 @@ export default function Example() {
       }
     }
   };
+
+  if (session) {
+    // If a session exists, show the main content or redirect the user
+    return <div>Welcome back! You are already signed in.</div>;
+  }
 
   return (
     <>

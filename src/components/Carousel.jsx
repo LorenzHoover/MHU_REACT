@@ -5,12 +5,26 @@ import floyd from '../assets/images/floyd.jpg';
 import football from '../assets/images/football.jpg';
 import graduation from '../assets/images/graduation.jpg';
 import stonewall from '../assets/images/stonewall.jpg';
+import BigCheck from '../assets/images/BigCheck.jpg';
+import BrickWall from '../assets/images/BrickWall.jpg';
+import DuncanOrange from '../assets/images/DuncanOrange.jpg';
+import Entrepreneurship from '../assets/images/Entrepreneurship.jpg';
+import JB from '../assets/images/JB.jpg';
+import MMPresenters from '../assets/images/MMPresenters.jpg';
+import Presenter from '../assets/images/Presenter.jpg';
 
 const images = [
   { src: floyd },
   { src: football },
   { src: graduation },
   { src: stonewall },
+  { src: BigCheck },
+  { src: BrickWall },
+  { src: DuncanOrange },
+  { src: Entrepreneurship },
+  { src: JB },
+  { src: MMPresenters },
+  { src: Presenter },
 ];
 
 const Carousel = () => {

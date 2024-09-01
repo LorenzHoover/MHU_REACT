@@ -12,7 +12,7 @@ const AboutUs = () => {
         <div className="lg:w-1/2 lg:pr-8 mb-8 lg:mb-0">
           <h3 className="text-3xl font-bold text-blue-900 mb-4">Chris Duncan</h3>
           <p className="text-lg text-gray-700">
-            Chris Duncan serves as the Executive-in-Residence and Adjunct Professor at Mars Hill University. As the Faculty Sponsor of the MHU Study Lion project, Chris has provided invaluable guidance and support throughout the development process. His extensive experience in both the academic and professional worlds has helped shape the strategic direction of the Study Lion App, ensuring it meets the educational needs of both faculty and students. Chris's passion for innovation in education is evident in his leadership and dedication to this project.
+          Chris Duncan serves as the Executive-in-Residence and Assistant Professor at Mars Hill University. As the Faculty Sponsor of the MHU Study Lion project, Chris’s passion for delivering an AI enabled education for an AI ready world, to give MHU’s students a competitive advantage is the driving force behind this pilot resource for instructors and students. His experience in both the academic and technology/business start-up worlds has helped shape the strategic direction of the MHU Study Lion App, ensuring it meets the educational needs of both faculty, students and future employers.
           </p>
         </div>
         <div className="lg:w-1/2">
@@ -25,7 +25,7 @@ const AboutUs = () => {
         <div className="lg:w-1/2 lg:pl-8 mb-8 lg:mb-0">
           <h3 className="text-3xl font-bold text-blue-900 mb-4">Lorenz Hoover</h3>
           <p className="text-lg text-gray-700">
-            Lorenz Hoover is the Project Lead Developer for the MHU Study Lion App. With a deep passion for technology and education, Lorenz has spearheaded the development of this innovative tool that aims to enhance the learning experience at Mars Hill University. His expertise in web development and API integration has been pivotal in bringing the vision of the Study Lion App to life. Lorenz's commitment to creating user-friendly interfaces ensures that both students and professors can easily navigate and benefit from this cutting-edge application.
+          Lorenz Hoover is the Project Lead Developer for the MHU Study Lion App. Leveraging his background in data science and a growing expertise in web development, Lorenz has recently undertaken multiple development projects, applying his newly acquored React and JavaScript skills. His work on the MHU Study Lion App, an innovative educational tool integrating ChatGPT, exemplifies his commitment to enhancing learning experiences. Lorenz's ability to design intuitive user interfaces and efficiently integrate APIs has been instrumental in making the app accessible and valuable to both students and faculty at Mars Hill University
           </p>
         </div>
         <div className="lg:w-1/2">

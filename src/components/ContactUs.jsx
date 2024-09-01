@@ -59,6 +59,14 @@ const ContactUs = () => {
   return (
     <div className="bg-white px-6 py-24 sm:py-32 lg:px-8">
       <div className="mx-auto mt-16 max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-16">
+        
+        {/* Information Text */}
+        <div className="mb-8 text-center">
+          <p className="text-lg font-semibold text-gray-900">
+            For questions, feedback, or suggestions on improvement to MHU Study Lion, please fill out the form below.
+          </p>
+        </div>
+
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">

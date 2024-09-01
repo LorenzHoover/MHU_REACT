@@ -25,7 +25,7 @@ export default function MissionStatement() {
         
         <div className="relative max-w-3xl mx-auto">
           <p className="text-2xl font-semibold leading-8 sm:text-3xl sm:leading-9">
-            "Mars Hill University is leading the way in integrating AI into education, providing a platform where students can thrive and excel."
+          MHU is leading the way in a rapidly changing world in integrating AI into Business education, preparing its graduates for an AI-ready future.”
           </p>
           <figcaption className="mt-10 flex items-center justify-center space-x-4">
             <img
@@ -35,7 +35,7 @@ export default function MissionStatement() {
             />
             <div className="text-white text-left">
               <div className="font-semibold">Chris Duncan</div>
-              <div>Executive-in-Residence, Adjunct Professor</div>
+              <div>Executive-in-Residence, Assistant Professor</div>
             </div>
           </figcaption>
         </div>
