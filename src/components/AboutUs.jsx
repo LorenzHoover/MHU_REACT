@@ -25,7 +25,7 @@ const AboutUs = () => {
         <div className="lg:w-1/2 lg:pl-8 mb-8 lg:mb-0">
           <h3 className="text-3xl font-bold text-blue-900 mb-4">Lorenz Hoover</h3>
           <p className="text-lg text-gray-700">
-          Lorenz Hoover is the Project Lead Developer for the MHU Study Lion App. Leveraging his background in data science and a growing expertise in web development, Lorenz has recently undertaken multiple development projects, applying his newly acquored React and JavaScript skills. His work on the MHU Study Lion App, an innovative educational tool integrating ChatGPT, exemplifies his commitment to enhancing learning experiences. Lorenz's ability to design intuitive user interfaces and efficiently integrate APIs has been instrumental in making the app accessible and valuable to both students and faculty at Mars Hill University
+          Lorenz Hoover is the Project Lead Developer for the MHU Study Lion App. Leveraging his background in data science and a growing expertise in web development, Lorenz has recently undertaken multiple development projects, applying his new React and JavaScript skills. His work on the MHU Study Lion App, an innovative educational tool integrating ChatGPT, exemplifies his commitment to enhancing learning experiences. Lorenz's ability to design intuitive user interfaces and efficiently integrate APIs has been instrumental in making the app accessible and valuable to both students and faculty at Mars Hill University
           </p>
         </div>
         <div className="lg:w-1/2">

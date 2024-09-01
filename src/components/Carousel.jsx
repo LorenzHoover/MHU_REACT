@@ -9,7 +9,6 @@ import BigCheck from '../assets/images/BigCheck.jpg';
 import BrickWall from '../assets/images/BrickWall.jpg';
 import DuncanOrange from '../assets/images/DuncanOrange.jpg';
 import Entrepreneurship from '../assets/images/Entrepreneurship.jpg';
-import JB from '../assets/images/JB.jpg';
 import MMPresenters from '../assets/images/MMPresenters.jpg';
 import Presenter from '../assets/images/Presenter.jpg';
 
@@ -22,7 +21,6 @@ const images = [
   { src: BrickWall },
   { src: DuncanOrange },
   { src: Entrepreneurship },
-  { src: JB },
   { src: MMPresenters },
   { src: Presenter },
 ];
