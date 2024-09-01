@@ -15,6 +15,6 @@ const Spinner = ({ size = 12, color = '#f2ae00', borderSize = 4 }) => {
       ></div>
     </div>
   );
-};x
+};
 
 export default Spinner;

@@ -19,15 +19,20 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Check if there is an existing session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
+    // Fetch the current user session
+    const getSession = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        setSession(user); // Set the session to the user data
+      }
       setIsLoading(false); // Stop loading after session check
-    });
+    };
+
+    getSession();
 
     // Listen for changes in the authentication state
     supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
+      setSession(session?.user || null); // Set session to the user or null
     });
   }, []);
 

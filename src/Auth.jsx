@@ -16,14 +16,18 @@ export default function Example() {
   };
 
   useEffect(() => {
-    // Check if a session already exists
-    const session = supabase.auth.session();
-    setSession(session);
-
-    // Listen for changes to the session (e.g., user logs in or logs out)
-    supabase.auth.onAuthStateChange((_event, session) => {
+    // Fetch the current user session
+    const checkSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
       setSession(session);
-    });
+
+      // Listen for changes to the session (e.g., user logs in or logs out)
+      supabase.auth.onAuthStateChange((_event, session) => {
+        setSession(session);
+      });
+    };
+
+    checkSession();
   }, []);
 
   const handleSubmit = async (event) => {
