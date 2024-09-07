@@ -13,10 +13,10 @@ import MMPresenters from '../assets/images/MMPresenters.jpg';
 import Presenter from '../assets/images/Presenter.jpg';
 
 const images = [
+  { src: stonewall }, // Stonewall is now the first image
   { src: floyd },
   { src: football },
   { src: graduation },
-  { src: stonewall },
   { src: BigCheck },
   { src: BrickWall },
   { src: DuncanOrange },

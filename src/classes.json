@@ -8,9 +8,9 @@
       "Contact Email": "bcessna@mhu.edu",
       "Department": "Business Administration",
       "Description": "An introduction to the principles of management, focusing on the organizational and behavioral aspects of management in a variety of business contexts.",
-      "Office Location": "TBD",
-      "CustomGptId": "asst_UZb3CskhqzVAN4Nt8nnKYSlD",
-      "VectorStorageId": "vs_DZJqZSQ9sEoFNPGiZFr6kn2C"
+      "Office Location": "Day Hall 311",
+      "CustomGptId": "asst_K3J6OValxqA75bbEKvnjo6Qi",
+      "VectorStorageId": "vs_O2R8LxmkFvvCufyXphmHpOul"
     },
     {
       "id": 2,
@@ -21,8 +21,8 @@
       "Department": "Business Administration",
       "Description": "This course covers the fundamentals of negotiation and sales strategies, providing students with practical skills and techniques for successful sales outcomes.",
       "Office Location": "Day Hall 312",
-      "CustomGptId": "asst_v04bVYOEvwj9iKCNeYxYtse1",
-      "VectorStorageId": "vs_dpRFasHavqVSRGypVkB1FVuA"
+      "CustomGptId": "asst_vDBpwRvd3pB0bhbP3wxuN7Md",
+      "VectorStorageId": "vs_cl1ymbVP89ng7xKVKDov84Lf"
     },
     {
       "id": 3,
@@ -32,9 +32,9 @@
       "Contact Email": "james_heinl@mhu.edu",
       "Department": "Business Administration",
       "Description": "A study of the legal and ethical issues in business, examining the impact of laws and ethical standards on business operations and decision-making.",
-      "Office Location": "TBD",
-      "CustomGptId": "asst_gnKTve90HoO30RpTYzHcyolu",
-      "VectorStorageId": "vs_ke8cqLFyWbbXmRfGTapavjAb"
+      "Office Location": "Day Hall 307",
+      "CustomGptId": "asst_Rzjki9pyGeDTV0ReznEB90O6",
+      "VectorStorageId": "vs_Ims5CXaOCoTTOuRlU8of3q8A"
     },
     {
       "id": 4,
@@ -45,8 +45,8 @@
       "Department": "Business Administration",
       "Description": "This course focuses on developing leadership skills, exploring various leadership styles and their effectiveness in different organizational contexts.",
       "Office Location": "TBD",
-      "CustomGptId": "asst_D8Md7MWqfBIQP1X3VdKYwXc7",
-      "VectorStorageId": "vs_amtfJfFQlBafykP4bG9TezIf"
+      "CustomGptId": "asst_jgDa4k7JNbPcW9FHh0tcWpYA",
+      "VectorStorageId": "vs_kgmoxhHUdzfOFaJbww4Jys3u"
     },
     {
       "id": 5,
@@ -56,9 +56,9 @@
       "Contact Email": "chris_duncan@mhu.edu",
       "Department": "Business Administration",
       "Description": "A capstone course that integrates knowledge and skills from previous business courses, emphasizing strategic management and decision-making.",
-      "Office Location": "TBD",
-      "CustomGptId": "asst_0kmXKEfZaXqc7vfaiUGOcUVE",
-      "VectorStorageId": "vs_vzvlsbuaRy4BgvNEFfu15aKk"
+      "Office Location": "Day Hall 312",
+      "CustomGptId": "asst_TIhVHItN3qIBih3KE7SaHdci",
+      "VectorStorageId": "vs_J2E1clL8NOdAePrwiPCdVQxN"
     },
     {
       "id": 6,
@@ -68,32 +68,68 @@
       "Contact Email": "amanda_nicholson2@mhu.edu",
       "Department": "Career Services",
       "Description": "Students have access via the Cothran Center to complete career and job search resources. This AI Assistant offers limited AI-based services such as resume writing and review, interview prep, prospective employer research.",
-      "Office Location": "TBD",
-      "CustomGptId": "asst_3P0MBC72jk9D9VPMdhFQoxyX",
-      "VectorStorageId": "vs_zFiuI2Gkoi7ug9UuW5S4AaIu"
+      "Office Location": "Day Hall 207",
+      "CustomGptId": "asst_hTe1jQFSqxBwYZavL7tjclmH",
+      "VectorStorageId": "vs_nCERGElqbWnr4E0O0ERrRe46"
     },
     {
       "id": 7,
-      "Class Code": "BA ???",
-      "Class Name": "TBD",
-      "Professor": "Grainger Caudle",
-      "Contact Email": "grainger_caudle@mhu.edu",
-      "Department": "Business Administration",
-      "Description": "TBD",
-      "Office Location": "TBD",
-      "CustomGptId": "asst_ePrGUNdkQBLrKbOtyxeyhLKE",
-      "VectorStorageId": null
-    },
-    {
-      "id": 8,
       "Class Code": "General Study Hall",
       "Class Name": "General Study Hall / Student Assistant",
       "Professor": "Chris Duncan",
       "Contact Email": "chris_duncan@mhu.edu",
       "Department": "Various",
       "Description": "MHU Study Lion offers the most advanced available CHATGPT assistance not tied to a specific class or class content. Feel free to use this for other general studies and classes.",
-      "Office Location": "TBD",
+      "Office Location": "Day Hall 312",
       "CustomGptId": null,
+      "VectorStorageId": null
+    },
+    {
+      "id": 8,
+      "Class Code": "Excel Training",
+      "Class Name": "Excel Training",
+      "Professor": "Chris Duncan",
+      "Contact Email": "chris_duncan@mhu.edu",
+      "Department": "Business Administration",
+      "Description": "Learn more and hone your essential Excel skills.",
+      "Office Location": "Day Hall 312",
+      "CustomGptId": "asst_ZCYGtPFlJuCRIFzRbVKAMPbW",
+      "VectorStorageId": null
+    },
+    {
+      "id": 9,
+      "Class Code": "Internship Preparation",
+      "Class Name": "Internship Preparation",
+      "Professor": "Chris Duncan",
+      "Contact Email": "chris_duncan@mhu.edu",
+      "Department": "Business Administration",
+      "Description": "Sourcing, preparing for, and succeeding in internships.",
+      "Office Location": "Day Hall 312",
+      "CustomGptId": "asst_TjktahWHKvUMt071RmThRfTM",
+      "VectorStorageId": null
+    },
+    {
+      "id": 10,
+      "Class Code": "Personal Financial Literacy",
+      "Class Name": "Personal Financial Literacy",
+      "Professor": "Chris Duncan",
+      "Contact Email": "chris_duncan@mhu.edu",
+      "Department": "Business Administration",
+      "Description": "Managing money, budgeting, investing, insurance, and benefits.",
+      "Office Location": "Day Hall 312",
+      "CustomGptId": "asst_8wSBRPUeEk8rhOoAQtqct97J",
+      "VectorStorageId": null
+    },
+    {
+      "id": 11,
+      "Class Code": "FBL Investment Club",
+      "Class Name": "FBL Investment Club",
+      "Professor": "Chris Duncan",
+      "Contact Email": "chris_duncan@mhu.edu",
+      "Department": "Business Administration",
+      "Description": "Learn about investing and FBL investment competitions.",
+      "Office Location": "Day Hall 312",
+      "CustomGptId": "asst_LiuRIxS6MD94HiMQDdtZXTkl",
       "VectorStorageId": null
     }
   ]

@@ -23,7 +23,7 @@ const ClassListing = ({ item }) => {
           <strong className="text-gray-800">Department:</strong> {item.Department}
         </div>
         <div className="mb-5">
-          <strong className="text-gray-800">Location:</strong> {item.Location}
+          <strong className="text-gray-800">Office Location:</strong> {item["Office Location"]}
         </div>
         <div className="border-t border-gray-300 mb-5"></div>
         <div className="flex justify-center">
@@ -49,7 +49,7 @@ ClassListing.propTypes = {
     Description: PropTypes.string.isRequired,
     "Contact Email": PropTypes.string.isRequired,
     Department: PropTypes.string.isRequired,
-    Location: PropTypes.string.isRequired,
+    "Office Location": PropTypes.string.isRequired,
   }).isRequired,
 };
 
