@@ -54,26 +54,29 @@ const Carousel = () => {
           </div>
         ))}
       </div>
+
+      {/* Updated buttons to match MHU blue and yellow */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-6 transform -translate-y-1/2 bg-blue-900 text-white px-4 py-2 rounded-full transition-colors duration-300 hover:bg-[#f4c547]"
+        className="absolute top-1/2 left-6 transform -translate-y-1/2 bg-[#002D72] text-white px-4 py-2 rounded-full transition-colors duration-300 hover:bg-[#FFDD00]"
         aria-label="Previous Slide"
       >
         &#10094;
       </button>
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-6 transform -translate-y-1/2 bg-blue-900 text-white px-4 py-2 rounded-full transition-colors duration-300 hover:bg-[#f4c547]"
+        className="absolute top-1/2 right-6 transform -translate-y-1/2 bg-[#002D72] text-white px-4 py-2 rounded-full transition-colors duration-300 hover:bg-[#FFDD00]"
         aria-label="Next Slide"
       >
         &#10095;
       </button>
+
       <div className="flex justify-center mt-4">
         {images.map((_, index) => (
           <div
             key={index}
             className={`w-4 h-4 mx-2 rounded-full ${
-              index === current ? 'bg-[#f4c547]' : 'bg-gray-400'
+              index === current ? 'bg-[#FFDD00]' : 'bg-gray-400'
             }`}
           ></div>
         ))}

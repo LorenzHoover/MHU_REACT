@@ -62,14 +62,14 @@ const ContactUs = () => {
         
         {/* Centered Information Text */}
         <div className="lg:col-span-2 text-center mb-8">
-          <p className="text-xl font-bold leading-6 text-[#002D72]">
+          <p className="text-xl font-serif uppercase text-[#002D72]">
             For questions, feedback, or suggestions on improvement to MHU Study Lion, please fill out the form below.
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
+            <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-black">
               First name
             </label>
             <div className="mt-2.5">
@@ -86,7 +86,7 @@ const ContactUs = () => {
             </div>
           </div>
           <div>
-            <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-gray-900">
+            <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-black">
               Last name
             </label>
             <div className="mt-2.5">
@@ -103,7 +103,7 @@ const ContactUs = () => {
             </div>
           </div>
           <div>
-            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
+            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-black">
               Email
             </label>
             <div className="mt-2.5">
@@ -120,7 +120,7 @@ const ContactUs = () => {
             </div>
           </div>
           <div>
-            <label htmlFor="phone-number" className="block text-sm font-semibold leading-6 text-gray-900">
+            <label htmlFor="phone-number" className="block text-sm font-semibold leading-6 text-black">
               Phone number
             </label>
             <div className="relative mt-2.5">
@@ -137,7 +137,7 @@ const ContactUs = () => {
             </div>
           </div>
           <div>
-            <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">
+            <label htmlFor="message" className="block text-sm font-semibold leading-6 text-black">
               Message
             </label>
             <div className="mt-2.5">
@@ -155,7 +155,7 @@ const ContactUs = () => {
           <div className="mt-10">
             <button
               type="submit"
-              className="block w-full rounded-md bg-[#002D72] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#0048A8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2AE00]"
+              className="block w-full rounded-md bg-[#002D72] px-3.5 py-2.5 text-center text-sm font-bold text-white shadow-sm hover:bg-[#0048A8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2AE00]"
             >
               Send Message
             </button>

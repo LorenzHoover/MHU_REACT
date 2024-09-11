@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Card = ({ children, bg = "bg-gray-100" }) => {
+const Card = ({ children, bg = "bg-white" }) => {
   return (
     <div className={`${bg} p-6 rounded-lg shadow-lg border border-black hover:shadow-xl transition-shadow duration-300`}>
       {children}
@@ -15,7 +15,7 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  bg: "bg-gray-100",
+  bg: "bg-white", // Default background set to white to match MHU's color palette
 };
 
 export default Card;

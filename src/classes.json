@@ -75,14 +75,14 @@
     {
       "id": 7,
       "Class Code": "General Study Hall",
-      "Class Name": "General Study Hall / Student Assistant",
-      "Professor": "Chris Duncan",
-      "Contact Email": "chris_duncan@mhu.edu",
-      "Department": "Various",
-      "Description": "MHU Study Lion offers the most advanced available CHATGPT assistance not tied to a specific class or class content. Feel free to use this for other general studies and classes.",
-      "Office Location": "Day Hall 312",
-      "CustomGptId": null,
-      "VectorStorageId": null
+      "Class Name": "Coming Soon!",
+      "Professor": "",
+      "Contact Email": "",
+      "Department": "",
+      "Description": "",
+      "Office Location": "",
+      "CustomGptId": "",
+      "VectorStorageId": ""
     },
     {
       "id": 8,
@@ -94,43 +94,43 @@
       "Description": "Learn more and hone your essential Excel skills.",
       "Office Location": "Day Hall 312",
       "CustomGptId": "asst_ZCYGtPFlJuCRIFzRbVKAMPbW",
-      "VectorStorageId": null
+      "VectorStorageId": "vs_17NwgXdJ9SFEBFIX1KfIul8z"
     },
     {
       "id": 9,
       "Class Code": "Internship Preparation",
-      "Class Name": "Internship Preparation",
-      "Professor": "Chris Duncan",
-      "Contact Email": "chris_duncan@mhu.edu",
-      "Department": "Business Administration",
-      "Description": "Sourcing, preparing for, and succeeding in internships.",
-      "Office Location": "Day Hall 312",
-      "CustomGptId": "asst_TjktahWHKvUMt071RmThRfTM",
-      "VectorStorageId": null
+      "Class Name": "Coming Soon!",
+      "Professor": "",
+      "Contact Email": "",
+      "Department": "",
+      "Description": "",
+      "Office Location": "",
+      "CustomGptId": "",
+      "VectorStorageId": ""
     },
     {
       "id": 10,
       "Class Code": "Personal Financial Literacy",
-      "Class Name": "Personal Financial Literacy",
-      "Professor": "Chris Duncan",
-      "Contact Email": "chris_duncan@mhu.edu",
-      "Department": "Business Administration",
-      "Description": "Managing money, budgeting, investing, insurance, and benefits.",
-      "Office Location": "Day Hall 312",
-      "CustomGptId": "asst_8wSBRPUeEk8rhOoAQtqct97J",
-      "VectorStorageId": null
+      "Class Name": "Coming Soon!",
+      "Professor": "",
+      "Contact Email": "",
+      "Department": "",
+      "Description": "",
+      "Office Location": "",
+      "CustomGptId": "",
+      "VectorStorageId": ""
     },
     {
       "id": 11,
       "Class Code": "FBL Investment Club",
-      "Class Name": "FBL Investment Club",
-      "Professor": "Chris Duncan",
-      "Contact Email": "chris_duncan@mhu.edu",
-      "Department": "Business Administration",
-      "Description": "Learn about investing and FBL investment competitions.",
-      "Office Location": "Day Hall 312",
-      "CustomGptId": "asst_LiuRIxS6MD94HiMQDdtZXTkl",
-      "VectorStorageId": null
+      "Class Name": "Coming Soon!",
+      "Professor": "",
+      "Contact Email": "",
+      "Department": "",
+      "Description": "",
+      "Office Location": "",
+      "CustomGptId": "",
+      "VectorStorageId": ""
     }
   ]
 }

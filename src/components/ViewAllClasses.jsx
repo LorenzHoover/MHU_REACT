@@ -38,7 +38,8 @@ const ViewAllClasses = () => {
 
   return (
     <div className="container mx-auto p-6">
-      <h2 className="text-4xl font-serif text-blue-900 mb-8">All Classes</h2>
+      {/* Main Heading: Trajan Pro, all caps */}
+      <h2 className="text-[30pt] leading-[36pt] font-serif font-bold text-[#002D72] uppercase mb-8">All Classes</h2>
       
       {/* Search and Filter Section */}
       <div className="bg-gray-100 p-6 rounded-lg shadow-lg mb-8">
@@ -50,7 +51,7 @@ const ViewAllClasses = () => {
               placeholder="Search by class name or code"
               value={searchTerm}
               onChange={handleSearch}
-              className="w-full p-4 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-700 transition-colors duration-300 shadow-sm"
+              className="w-full p-4 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:border-[#002D72] transition-colors duration-300 shadow-sm"
             />
           </div>
           <div className="relative">
@@ -58,7 +59,7 @@ const ViewAllClasses = () => {
             <select 
               value={filterDepartment} 
               onChange={handleFilter} 
-              className="w-full p-4 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-700 transition-colors duration-300 shadow-sm"
+              className="w-full p-4 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:border-[#002D72] transition-colors duration-300 shadow-sm"
             >
               <option value="">All Departments</option>
               {departments.map((department) => (

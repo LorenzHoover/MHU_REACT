@@ -1,5 +1,6 @@
-/* Import Montserrat font */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+/* Import Mars Hill University fonts */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Trajan+Pro:wght@400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,10 +8,12 @@
 
 /* Existing global styles */
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
+/* Headings (use Trajan Pro for major headings) */
 h1, h2 {
+  font-family: 'Trajan Pro', serif;
   font-weight: bold;
 }
 
@@ -29,17 +32,21 @@ li:hover {
 }
 
 /* Loader (Spinner) styles */
-.loader {
-  border-top-color: #3498db;
-  animation: spin 1s linear infinite;
-  border-radius: 50%;
-}
-
+/* Spinner Animation */
 @keyframes spin {
   to {
     transform: rotate(360deg);
   }
 }
+
+/* Loader (Spinner) styles */
+.loader {
+  border-top-color: #002D72; /* Mars Hill University Blue */
+  border-right-color: #FFDD00; /* Mars Hill University Yellow */
+  animation: spin 1s linear infinite;
+  border-radius: 50%;
+}
+
 
 /* New MHU-inspired global styles */
 body {
@@ -48,13 +55,13 @@ body {
 
 /* Headings */
 h1 {
-  @apply font-serif text-4xl leading-tight text-blue-900;
+  @apply font-serif text-4xl leading-tight text-[#002D72]; /* Mars Hill Blue */
 }
 h2 {
-  @apply font-serif text-3xl leading-snug text-blue-900;
+  @apply font-serif text-3xl leading-snug text-[#002D72]; /* Mars Hill Blue */
 }
 h3 {
-  @apply text-xl leading-relaxed font-bold text-yellow-700;
+  @apply text-xl leading-relaxed font-bold text-[#FFDD00]; /* Mars Hill Yellow for accents */
 }
 h4 {
   @apply text-2xl leading-snug italic text-gray-600;
@@ -81,16 +88,16 @@ h5, h6 {
 
 /* Link Styling */
 a {
-  @apply text-teal-600 hover:opacity-70;
+  @apply text-[#002D72] hover:opacity-70; /* Mars Hill Blue for links */
 }
 
-/* Golden Hover Effect for Specific Buttons */
+/* Yellow Hover Effect for Specific Buttons */
 .navbar-button, .sign-in-button, .class-gpt-button, .new-chat-button, .sidebar-toggle-button, .send-button, .view-all-classes-button, .carousel-circle {
   @apply transition-colors duration-300;
 }
 
 .navbar-button:hover, .sign-in-button:hover, .class-gpt-button:hover, .new-chat-button:hover, .sidebar-toggle-button:hover, .send-button:hover, .view-all-classes-button:hover, .carousel-circle:hover {
-  background-color: #f4c547; /* Updated SVG golden hover color */
+  background-color: #FFDD00; /* Mars Hill Yellow */
 }
 
 /* Apply a golden filter to the logo */

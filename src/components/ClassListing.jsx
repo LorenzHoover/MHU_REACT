@@ -7,29 +7,52 @@ const ClassListing = ({ item }) => {
     <div className="bg-white rounded-xl shadow-lg border border-gray-300 hover:shadow-xl transition-shadow duration-300">
       <div className="p-6">
         <div className="mb-6">
-          <div className="text-teal-600 my-2">{item["Class Code"]}</div>
-          <h3 className="text-2xl font-serif text-blue-900">{item["Class Name"]}</h3>
+          {/* Class Code: Source Sans Pro Bold, 10pt on 14pt, Mars Hill Yellow */}
+          <div className="text-[#FFDD00] font-bold text-[10pt] leading-[14pt] my-2">
+            {item["Class Code"]}
+          </div>
+          
+          {/* Class Name: Source Sans Pro Regular, all caps, 12pt on 16pt, Mars Hill Blue */}
+          <h3 className="text-[#002D72] font-regular text-[12pt] leading-[16pt] uppercase">
+            {item["Class Name"]}
+          </h3>
         </div>
+
         <div className="mb-5">
-          <strong className="text-gray-800">Professor:</strong> {item.Professor}
+          {/* Body Text: Source Sans Pro Light, 10pt on 14pt, bolded label */}
+          <strong className="font-bold text-[10pt] leading-[14pt] text-black">Professor:</strong>{' '}
+          <span className="font-light text-[10pt] leading-[14pt] text-black">{item.Professor}</span>
         </div>
+
         <div className="mb-5">
-          <strong className="text-gray-800">Description:</strong> {item.Description}
+          <strong className="font-bold text-[10pt] leading-[14pt] text-black">Description:</strong>{' '}
+          <span className="font-light text-[10pt] leading-[14pt] text-black">{item.Description}</span>
         </div>
+
         <div className="mb-5">
-          <strong className="text-gray-800">Contact Email:</strong> <a href={`mailto:${item["Contact Email"]}`} className="text-teal-600 hover:underline">{item["Contact Email"]}</a>
+          {/* Contact Email: Mars Hill Blue */}
+          <strong className="font-bold text-[10pt] leading-[14pt] text-black">Contact Email:</strong>{' '}
+          <a href={`mailto:${item["Contact Email"]}`} className="text-[#002D72] hover:underline">
+            {item["Contact Email"]}
+          </a>
         </div>
+
         <div className="mb-5">
-          <strong className="text-gray-800">Department:</strong> {item.Department}
+          <strong className="font-bold text-[10pt] leading-[14pt] text-black">Department:</strong>{' '}
+          <span className="font-light text-[10pt] leading-[14pt] text-black">{item.Department}</span>
         </div>
+
         <div className="mb-5">
-          <strong className="text-gray-800">Office Location:</strong> {item["Office Location"]}
+          <strong className="font-bold text-[10pt] leading-[14pt] text-black">Office Location:</strong>{' '}
+          <span className="font-light text-[10pt] leading-[14pt] text-black">{item["Office Location"]}</span>
         </div>
+
         <div className="border-t border-gray-300 mb-5"></div>
+
         <div className="flex justify-center">
           <Link
             to={`/class/${item.id}`}
-            className="class-gpt-button h-[36px] bg-blue-900 text-white px-4 py-2 rounded-lg text-center text-sm transition-colors duration-300 hover:bg-[#f4c547]"
+            className="class-gpt-button h-[36px] bg-[#002D72] text-white px-4 py-2 rounded-lg text-center text-sm transition-colors duration-300 font-bold hover:bg-[#FFDD00]"
             aria-label={`Go to GPT Assistant for ${item["Class Name"]}`}
           >
             Class GPT
