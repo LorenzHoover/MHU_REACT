@@ -22,7 +22,7 @@ const ContactUs = () => {
     setResult("Sending...");
 
     const formDetails = new FormData();
-    formDetails.append("access_key", "0b21ee7a-38c9-45d3-b140-06147b12a163"); // Your Web3Forms Access Key
+    formDetails.append("access_key", "50928a76-1f83-4a83-9228-483112feca6a"); // Your Web3Forms Access Key
     formDetails.append("name", `${formData.firstName} ${formData.lastName}`);
     formDetails.append("email", formData.email);
     formDetails.append("phone", formData.phoneNumber);
