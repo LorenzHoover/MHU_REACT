@@ -1,9 +1,7 @@
-// functions/getCustomGpt.js
 import { getAssistantInfo } from './getAssistantId';
 
 export const fetchGptData = async (prompt, classCode) => {
   const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
-  console.log("API Key:", apiKey);
 
   const assistantInfo = getAssistantInfo(classCode);
   if (!assistantInfo) {
@@ -31,21 +29,17 @@ export const fetchGptData = async (prompt, classCode) => {
 
     const runId = runResponse.id;
 
-    // Step 4: Wait for the run to complete
-    const completedRun = await waitForRunCompletion(apiKey, threadId, runId);
-    console.log('Completed Run Response:', completedRun); // Add logging
+    // Step 4: Wait for the run to complete with updated attempts and retry logic
+    const completedRun = await waitForRunCompletion(apiKey, threadId, runId, 5000, 20); // Extended retry interval and attempts
 
     // Step 5: Fetch messages from the thread
     const messages = await fetchMessages(apiKey, threadId);
-    console.log('Messages:', messages); // Add logging
 
     if (!messages || messages.length === 0) {
       throw new Error('No messages found in the thread');
     }
 
     const aiMessage = messages.find(msg => msg.role === 'assistant');
-    console.log('AI Message:', aiMessage); // Add logging
-
     if (aiMessage && typeof aiMessage.content === 'object') {
       const content = aiMessage.content.map(item => item.text.value).join(" ");
       return sanitizeResponse(content);
@@ -60,18 +54,10 @@ export const fetchGptData = async (prompt, classCode) => {
   }
 };
 
-// Helper function to sanitize the response
-const sanitizeResponse = (text) => {
-  // Remove any citation references like " "
-  return text.replace(/【\d+:\d+†source】/g, '');
-};
-
 const createThread = async (apiKey, vectorStorageId) => {
-  const payload = {
-    tool_resources: {}
-  };
-
-  // Add vector store ID only if it's available
+  const payload = { tool_resources: {} };
+  
+  // Add vector store ID if available
   if (vectorStorageId) {
     payload.tool_resources.file_search = {
       vector_store_ids: [vectorStorageId]
@@ -89,14 +75,13 @@ const createThread = async (apiKey, vectorStorageId) => {
   });
 
   const data = await response.json();
-  console.log('Create Thread Response:', data); // Add logging
 
   if (data.error) {
     console.error('Error creating thread:', data.error.message);
     return null;
   }
 
-  return data.id;  // Return the thread ID
+  return data.id;
 };
 
 const appendUserMessage = async (apiKey, threadId, message) => {
@@ -113,7 +98,6 @@ const appendUserMessage = async (apiKey, threadId, message) => {
     })
   });
   const data = await response.json();
-  console.log('Append User Message Response:', data); // Add logging
 
   if (data.error) {
     console.error('Error appending message:', data.error.message);
@@ -128,8 +112,6 @@ const createRun = async (apiKey, threadId, assistantId) => {
     assistant_id: assistantId
   };
 
-  console.log('Creating run with payload:', payload);
-
   const response = await fetch(`https://api.openai.com/v1/threads/${threadId}/runs`, {
     method: 'POST',
     headers: {
@@ -140,54 +122,9 @@ const createRun = async (apiKey, threadId, assistantId) => {
     body: JSON.stringify(payload)
   });
   const data = await response.json();
-  console.log('Create Run Response:', data); // Add logging
 
   if (data.error) {
     console.error('Error creating run:', data.error.message);
-    return null;
-  }
-
-  return data;
-};
-
-const fetchMessages = async (apiKey, threadId) => {
-  const response = await fetch(`https://api.openai.com/v1/threads/${threadId}/messages`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${apiKey}`,
-      'OpenAI-Beta': 'assistants=v2'
-    }
-  });
-  const data = await response.json();
-  console.log('Fetch Messages Response:', data); // Add logging
-
-  if (data.error) {
-    console.error('Error fetching messages:', data.error.message);
-    return [];
-  }
-
-  if (!data || !data.data) {
-    throw new Error('Invalid response structure');
-  }
-
-  return data.data;
-};
-
-const fetchRunStatus = async (apiKey, threadId, runId) => {
-  const response = await fetch(`https://api.openai.com/v1/threads/${threadId}/runs/${runId}`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${apiKey}`,
-      'OpenAI-Beta': 'assistants=v2'
-    }
-  });
-  const data = await response.json();
-  console.log('Run Status Response:', data); // Add logging
-
-  if (data.error) {
-    console.error('Error fetching run status:', data.error.message);
     return null;
   }
 
@@ -206,4 +143,46 @@ const waitForRunCompletion = async (apiKey, threadId, runId, interval = 3000, ma
     await new Promise(resolve => setTimeout(resolve, interval));
   }
   throw new Error('Run did not complete in time');
+};
+
+const fetchRunStatus = async (apiKey, threadId, runId) => {
+  const response = await fetch(`https://api.openai.com/v1/threads/${threadId}/runs/${runId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`,
+      'OpenAI-Beta': 'assistants=v2'
+    }
+  });
+  const data = await response.json();
+
+  if (data.error) {
+    console.error('Error fetching run status:', data.error.message);
+    return null;
+  }
+
+  return data;
+};
+
+const fetchMessages = async (apiKey, threadId) => {
+  const response = await fetch(`https://api.openai.com/v1/threads/${threadId}/messages`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`,
+      'OpenAI-Beta': 'assistants=v2'
+    }
+  });
+  const data = await response.json();
+
+  if (data.error) {
+    console.error('Error fetching messages:', data.error.message);
+    return [];
+  }
+
+  return data.data;
+};
+
+const sanitizeResponse = (text) => {
+  return text.replace(/【\d+:\d+†source】/g, '');
 };

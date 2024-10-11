@@ -9,11 +9,12 @@ import { marked } from 'marked';
 
 // Function to moderate content using OpenAI Moderation API
 const moderateContent = async (inputText) => {
+  const apiKey = import.meta.env.VITE_OPENAI_API_KEY; // Correct usage for Vite
   const moderationResponse = await fetch('https://api.openai.com/v1/moderations', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${process.env.VITE_OPENAI_API_KEY}`, // Your OpenAI API key
+      'Authorization': `Bearer ${apiKey}`,
     },
     body: JSON.stringify({ input: inputText }),
   });
@@ -21,7 +22,7 @@ const moderateContent = async (inputText) => {
   const moderationData = await moderationResponse.json();
 
   if (moderationData.results && moderationData.results[0].flagged) {
-    throw new Error('Input contains unsafe content and cannot be processed.');
+    throw new Error('Your input contains unsafe content and cannot be processed.');
   }
 };
 
