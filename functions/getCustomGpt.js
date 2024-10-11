@@ -22,7 +22,7 @@ export const fetchGptData = async (prompt, classCode) => {
     await appendUserMessage(apiKey, threadId, prompt);
 
     // Step 3: Create a run with the assistant ID
-    const runResponse = await createRun(apiKey, threadId, assistantId);
+    const runResponse = await createRun(apiKey, threadId, assistantId, 'gpt-4-turbo'); // Updated to use gpt-4-turbo
     if (runResponse.error) {
       throw new Error(runResponse.error.message);
     }
@@ -107,9 +107,10 @@ const appendUserMessage = async (apiKey, threadId, message) => {
   return data;
 };
 
-const createRun = async (apiKey, threadId, assistantId) => {
+const createRun = async (apiKey, threadId, assistantId, model = 'gpt-4-turbo') => {
   const payload = {
-    assistant_id: assistantId
+    assistant_id: assistantId,
+    model  // Specify the model (gpt-4-turbo in this case)
   };
 
   const response = await fetch(`https://api.openai.com/v1/threads/${threadId}/runs`, {
